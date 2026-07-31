@@ -128,7 +128,7 @@ export async function fetchTickerMessages() {
   try {
     const res = await fetch(
       `${SUPABASE.url}/rest/v1/flipper_messages?select=day,text,level,sort&active=eq.true&order=sort&order=created_at`,
-      { headers: { apikey: SUPABASE.key, Authorization: `Bearer ${SUPABASE.key}` } },
+      { headers: { apikey: SUPABASE.key } },
     );
     if (!res.ok) return [];
     return await res.json();
@@ -144,7 +144,6 @@ export async function adminOp(adminCode, op, msg = {}, msgId = null) {
     method: 'POST',
     headers: {
       apikey: SUPABASE.key,
-      Authorization: `Bearer ${SUPABASE.key}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ admin_code: adminCode, op, msg, msg_id: msgId }),

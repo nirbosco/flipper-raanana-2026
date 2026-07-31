@@ -2,9 +2,8 @@
 
 export const SUPABASE = {
   url: 'https://joyerclvkexbutbalfxb.supabase.co',
-  // המפתח הציבורי (anon / publishable) של הפרויקט. מדביקים פעם אחת ומקמטים.
-  // בלי מפתח — הפס הרץ מציג הודעות ברירת מחדל וניהול ההודעות באדמין מושבת.
-  key: '',
+  // המפתח הציבורי (publishable) של הפרויקט — בטוח לשיתוף, מיועד לקוד צד-לקוח.
+  key: 'sb_publishable_ZNRIWrTQwMD0E0MCauim7g_dh6Brf6I',
 };
 
 export const hasSupabase = () => Boolean(SUPABASE.url && SUPABASE.key);
