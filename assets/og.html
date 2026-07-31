@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Rubik', sans-serif;
+    background: linear-gradient(135deg, #0d3577 0%, #1450b4 55%, #2565c7 100%);
+    display: flex; align-items: center; justify-content: center; gap: 70px;
+    color: #fff; position: relative;
+  }
+  .waves { position: absolute; bottom: -40px; inset-inline: 0; opacity: .22; }
+  .mark { width: 300px; height: 300px; color: #fff; filter: drop-shadow(0 18px 40px rgba(0,0,0,.28)); }
+  .txt { text-align: right; }
+  .txt .t1 { font-size: 84px; font-weight: 700; line-height: 1.1; }
+  .txt .t2 { font-size: 40px; font-weight: 500; margin-top: 18px; opacity: .92; }
+  .txt .t3 { font-size: 26px; margin-top: 26px; opacity: .75; }
+</style>
+</head>
+<body>
+  <svg class="mark" viewBox="0 0 234 234" fill="none">
+    <path fill="currentColor" d="M125.878 92.6747C136.186 60.768 126.268 41.8987 115.791 33.3842C115.791 33.3842 98.2301 54.962 91.4058 64.1115C85.8165 71.5763 81.9429 80.6092 79.9801 89.1108C71.3491 90.4845 62.991 93.7892 54.8019 98.2603C46.2229 102.926 22.1495 120.162 22.1495 120.162C32.3144 133.238 57.0117 141.546 85.9595 132.357C91.9128 129.999 98.659 127.821 105.041 127.264C110.735 126.746 114.816 128.34 118.846 132.292C125.111 138.448 138.513 153.87 159.557 167.685C177.3 179.323 193.419 185.505 211.772 186.49C190.403 215.312 156.074 234 117.364 234C105.444 234 93.9276 232.225 83.0868 228.92C81.371 228.388 79.6682 227.831 78.0173 227.248H78.0043C77.2114 226.963 76.4315 226.665 75.6386 226.38C75.3656 226.276 75.0927 226.172 74.8327 226.069C69.2303 223.879 63.8099 221.287 58.6625 218.306C39.6326 207.329 23.9953 191.168 13.6615 171.768C13.6225 171.716 13.5965 171.664 13.5705 171.612C12.2706 169.163 11.0488 166.674 9.91791 164.108C9.90491 164.044 9.8529 163.953 9.82691 163.888C9.61893 163.46 9.44994 163.033 9.25497 162.592C3.30163 148.596 0 133.174 0 117C0 52.383 52.5402 0 117.351 0C177.807 0 227.579 45.5662 234 104.131C217.973 123.895 186.724 127.29 163.041 126.785C152.083 126.551 141.112 125.346 130.597 122.223C116.363 118.011 122.524 103.029 125.852 92.7136L125.878 92.6747Z"/>
+  </svg>
+  <div class="txt">
+    <div class="t1">קייטנת פליפר רעננה</div>
+    <div class="t2">הלו"ז היומי של הילדים שלכם</div>
+    <div class="t3">מה קורה עכשיו · הודעות חשובות · כל השבוע</div>
+  </div>
+  <svg class="waves" viewBox="0 0 1200 120" preserveAspectRatio="none" height="120">
+    <path d="M0 60 Q 75 20 150 60 T 300 60 T 450 60 T 600 60 T 750 60 T 900 60 T 1050 60 T 1200 60 V 120 H 0 Z" fill="#fff"/>
+  </svg>
+</body>
+</html>
