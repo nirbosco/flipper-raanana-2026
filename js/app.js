@@ -1,12 +1,11 @@
 /* app.js — הלוגיקה של אפליקציית הלו"ז */
 
-import { loadModel, startAutoRefresh, israelNow } from './data.js';
+import { loadModel, startAutoRefresh, israelNow, fetchTickerMessages } from './data.js';
 import {
-  icon, categoryMeta, groupAvatar, groupColor, LOGO, CATEGORY_META,
+  icon, categoryMeta, groupAvatar, groupStyle, LOGO, CATEGORY_META,
 } from './icons.js';
-import { SHEET_URL } from './parser.js';
 
-const GROUPS_KEY = 'flipper.groups.v1';
+const GROUPS_KEY = 'flipper.groups.v2';
 const PICKUP_SHORT = 13 * 60 + 30;
 const PICKUP_LONG = 16 * 60;
 
@@ -14,37 +13,47 @@ const $ = (id) => document.getElementById(id);
 
 const state = {
   model: null,
-  selected: JSON.parse(localStorage.getItem(GROUPS_KEY) || '[]'),
+  selected: (JSON.parse(localStorage.getItem(GROUPS_KEY) || '[]') || [])
+    .filter(Number.isInteger), // מספרי עמודות בגיליון
+  ticker: [],
   dayIndex: 0,
   dayChosenByUser: false,
 };
 
 /* ---------- עזרים ---------- */
 
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 function todayIndex(model) {
   const { date } = israelNow();
   const i = model.days.findIndex((d) => d.date === date);
   if (i >= 0) return i;
-  // לפני תחילת השבוע — היום הראשון; אחרי — האחרון
   return date < model.days[0].date ? 0 : model.days.length - 1;
 }
 
 const selectedGroups = () =>
-  state.model.groups.filter((g) => state.selected.includes(g.name));
+  state.model.groups.filter((g) => state.selected.includes(g.col));
+
+const groupIdx = (g) => state.model.groups.findIndex((x) => x.col === g.col);
+
+const groupSub = (g) => [g.instructor, g.ages].filter(Boolean).join(' · ');
 
 /* ---------- שער כניסה ---------- */
 
-function groupCardHTML(g, selected) {
-  const gc = groupColor(g.name);
+function groupCardHTML(g, idx, selected) {
+  const gs = groupStyle(idx);
   return `
-    <button class="group-card ${selected ? 'selected' : ''}" data-group="${esc(g.name)}" style="--gc:${gc.color}">
+    <button class="group-card ${selected ? 'selected' : ''}" data-col="${g.col}" style="--gc:${gs.color}">
       <span class="tick">✓</span>
-      <span class="avatar" style="background:${gc.soft};color:${gc.color}">${groupAvatar(g.name)}</span>
+      <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(idx)}</span>
       <span class="g-name">${esc(g.name)}</span>
-      <span class="g-ages">${esc(g.ages)}</span>
+      <span class="g-ages">${esc(groupSub(g)) || '&nbsp;'}</span>
     </button>`;
+}
+
+function renderGroupGrid(container) {
+  container.innerHTML = state.model.groups
+    .map((g, i) => groupCardHTML(g, i, state.selected.includes(g.col))).join('');
 }
 
 function bindGroupGrid(container, onChange) {
@@ -52,15 +61,15 @@ function bindGroupGrid(container, onChange) {
     const card = e.target.closest('.group-card');
     if (!card) return;
     card.classList.toggle('selected');
-    onChange([...container.querySelectorAll('.group-card.selected')].map((c) => c.dataset.group));
+    onChange([...container.querySelectorAll('.group-card.selected')].map((c) => parseInt(c.dataset.col, 10)));
   });
 }
 
 function showGate() {
   $('gate').hidden = false;
   $('app').hidden = true;
-  $('gate-logo').innerHTML = LOGO();
-  $('gate-groups').innerHTML = state.model.groups.map((g) => groupCardHTML(g, state.selected.includes(g.name))).join('');
+  $('gate-logo').innerHTML = LOGO('gate-mark');
+  renderGroupGrid($('gate-groups'));
   $('gate-cta').disabled = state.selected.length === 0;
 }
 
@@ -68,15 +77,16 @@ let gateBound = false;
 function bindGate() {
   if (gateBound) return;
   gateBound = true;
-  bindGroupGrid($('gate-groups'), (names) => {
-    state.selected = names;
-    $('gate-cta').disabled = names.length === 0;
+  bindGroupGrid($('gate-groups'), (cols) => {
+    state.selected = cols;
+    $('gate-cta').disabled = cols.length === 0;
   });
   $('gate-cta').addEventListener('click', () => {
     localStorage.setItem(GROUPS_KEY, JSON.stringify(state.selected));
     $('gate').hidden = true;
     $('app').hidden = false;
     renderApp();
+    setTimeout(scrollToNow, 350);
   });
 }
 
@@ -89,12 +99,11 @@ const DEFAULT_MESSAGES = [
 
 function activeMessages() {
   const day = state.model.days[state.dayIndex];
-  const msgs = (state.model.messages || []).filter((m) => {
-    const dateOk = !m.date || m.date.trim() === day.dateLabel || m.date.trim() === day.date;
-    const groupOk = !m.group || state.selected.includes(m.group);
-    return dateOk && groupOk;
+  const mine = state.ticker.filter((m) => {
+    const d = (m.day || '').trim();
+    return !d || d === day.dateLabel || d === day.date;
   });
-  const list = msgs.length ? msgs : DEFAULT_MESSAGES;
+  const list = mine.length ? [...mine] : [...DEFAULT_MESSAGES];
   if (day.theme) list.push({ text: `היום בקייטנה: ${day.theme}`, level: 'normal' });
   return list;
 }
@@ -106,9 +115,8 @@ function renderTicker() {
   ticker.hidden = false;
   const items = msgs.map((m) => `
     <span class="ticker-item ${m.level === 'important' ? 'important' : ''}">
-      <span class="dot"></span>${esc(m.text)}${m.group ? ` <b>(${esc(m.group)})</b>` : ''}
+      <span class="dot"></span>${esc(m.text)}
     </span>`).join('');
-  // שתי עותקים ללולאה חלקה
   $('ticker-track').innerHTML = items + items;
   const chars = msgs.reduce((n, m) => n + m.text.length, 0);
   $('ticker-track').style.setProperty('--ticker-dur', `${Math.max(18, chars * 0.55)}s`);
@@ -137,7 +145,7 @@ function nowInfo() {
   if (day.date !== date) return null;
   if (minutes < 8 * 60 || minutes > PICKUP_LONG + 30) return null;
   const rows = selectedGroups().map((g) => {
-    const acts = day.activities.filter((a) => a.groups.includes(g.name));
+    const acts = day.activities.filter((a) => a.cols.includes(g.col));
     const current = acts.find((a) => a.startMin <= minutes && minutes < a.endMin);
     const next = acts.find((a) => a.startMin > minutes);
     return { group: g, current, next };
@@ -151,7 +159,7 @@ function renderNowBanner() {
   if (!info || !info.rows.length) { banner.hidden = true; return; }
   banner.hidden = false;
   const rowsHTML = info.rows.map(({ group, current, next }) => {
-    const gc = groupColor(group.name);
+    const gs = groupStyle(groupIdx(group));
     if (current) {
       const meta = categoryMeta(current.category);
       const pct = Math.round(((info.minutes - current.startMin) / (current.endMin - current.startMin)) * 100);
@@ -159,7 +167,7 @@ function renderNowBanner() {
         <div class="nb-row">
           <span class="nb-icon" style="background:${meta.soft};color:${meta.color}">${icon(current.category)}</span>
           <div class="nb-info">
-            <div class="nb-group" style="color:${gc.color}">${esc(group.name)} עכשיו</div>
+            <div class="nb-group" style="color:${gs.color}">${esc(group.name)} עכשיו</div>
             <div class="nb-label">${esc(current.label)}</div>
             <div class="nb-time">${current.start}–${current.end}</div>
             <div class="nb-progress"><i style="width:${pct}%"></i></div>
@@ -172,7 +180,7 @@ function renderNowBanner() {
         <div class="nb-row">
           <span class="nb-icon" style="background:${meta.soft};color:${meta.color}">${icon(next.category)}</span>
           <div class="nb-info">
-            <div class="nb-group" style="color:${gc.color}">${esc(group.name)} בהמשך</div>
+            <div class="nb-group" style="color:${gs.color}">${esc(group.name)} בהמשך</div>
             <div class="nb-label">${esc(next.label)}</div>
             <div class="nb-time">מתחיל בשעה ${next.start}</div>
           </div>
@@ -180,9 +188,9 @@ function renderNowBanner() {
     }
     return `
       <div class="nb-row">
-        <span class="nb-icon" style="background:${groupColor(group.name).soft};color:${gc.color}">${groupAvatar(group.name)}</span>
+        <span class="nb-icon" style="background:${gs.soft};color:${gs.color}">${groupAvatar(groupIdx(group))}</span>
         <div class="nb-info">
-          <div class="nb-group" style="color:${gc.color}">${esc(group.name)}</div>
+          <div class="nb-group" style="color:${gs.color}">${esc(group.name)}</div>
           <div class="nb-label">היום הסתיים, נתראה מחר!</div>
         </div>
       </div>`;
@@ -208,7 +216,6 @@ function renderTimeline() {
   const y = (min) => (min - dayStart) * pxPerMin;
   const height = y(dayEnd) + 8;
 
-  // ציר שעות
   let gutter = '';
   let lines = '';
   for (let t = Math.ceil(dayStart / 30) * 30; t <= dayEnd; t += 30) {
@@ -223,8 +230,8 @@ function renderTimeline() {
   const showNowLine = isToday && minutes >= dayStart - 15 && minutes <= dayEnd + 15;
 
   const cols = groups.map((g) => {
-    const gc = groupColor(g.name);
-    const mine = day.activities.filter((a) => a.groups.includes(g.name));
+    const gs = groupStyle(groupIdx(g));
+    const mine = day.activities.filter((a) => a.cols.includes(g.col));
     const cards = mine.map((a) => {
       const meta = categoryMeta(a.category);
       const h = (a.endMin - a.startMin) * pxPerMin;
@@ -243,8 +250,12 @@ function renderTimeline() {
     }).join('');
     return `
       <div class="tl-col">
-        <div class="tl-col-head" style="--gcol:${gc.color};--gsoft:${gc.soft}">
-          ${groupAvatar(g.name)} ${esc(g.name)} <span class="ages">${esc(g.ages)}</span>
+        <div class="tl-col-head" style="--gcol:${gs.color};--gsoft:${gs.soft}">
+          ${groupAvatar(groupIdx(g))}
+          <span class="head-txt">
+            <span class="head-name">${esc(g.name)}</span>
+            ${groupSub(g) ? `<span class="head-sub">${esc(groupSub(g))}</span>` : ''}
+          </span>
         </div>
         <div class="tl-canvas" style="height:${height}px">
           ${lines}
@@ -258,7 +269,7 @@ function renderTimeline() {
 
   timeline.innerHTML = `
     <div class="tl-gutter">
-      <div class="tl-col-head" style="visibility:hidden">.</div>
+      <div class="tl-col-head ghost">.</div>
       <div class="tl-canvas" style="height:${height}px">${gutter}</div>
     </div>
     ${cols}`;
@@ -281,7 +292,7 @@ function renderLegend() {
     const meta = categoryMeta(c);
     return `
       <div class="legend-item">
-        <span class="sw" style="--col:${meta.color};--soft:${meta.soft};color:${meta.color};background:${meta.soft}">${icon(c)}</span>
+        <span class="sw" style="color:${meta.color};background:${meta.soft}">${icon(c)}</span>
         ${esc(meta.label)}
       </div>`;
   }).join('');
@@ -291,8 +302,7 @@ function renderLegend() {
 /* ---------- הגדרות ---------- */
 
 function openSettings() {
-  $('settings-groups').innerHTML = state.model.groups
-    .map((g) => groupCardHTML(g, state.selected.includes(g.name))).join('');
+  renderGroupGrid($('settings-groups'));
   $('settings-sheet').classList.add('open');
   $('sheet-backdrop').classList.add('open');
 }
@@ -304,14 +314,9 @@ function closeSettings() {
 
 /* ---------- הרכבה ---------- */
 
-function syncStickyOffset() {
-  const h = $('sticky-stack').offsetHeight;
-  document.documentElement.style.setProperty('--sticky-top', `${h + 6}px`);
-}
-
 function renderApp() {
   const day = state.model.days[state.dayIndex];
-  $('top-logo').innerHTML = LOGO();
+  $('top-logo').innerHTML = LOGO('top-mark');
   $('top-theme').textContent = day.theme
     ? `יום ${DAY_NAMES[day.dayLetter] || day.dayLetter} ${day.dateLabel} · ${day.theme}`
     : `יום ${DAY_NAMES[day.dayLetter] || day.dayLetter} ${day.dateLabel}`;
@@ -321,7 +326,6 @@ function renderApp() {
   renderTimeline();
   renderLegend();
   renderSyncNote();
-  requestAnimationFrame(syncStickyOffset);
 }
 
 function renderSyncNote() {
@@ -355,6 +359,14 @@ function onModel(model) {
   }
 }
 
+async function refreshTicker() {
+  const msgs = await fetchTickerMessages();
+  if (msgs.length) {
+    state.ticker = msgs;
+    if (state.model && !$('app').hidden) renderTicker();
+  }
+}
+
 /* ---------- אירועים ---------- */
 
 $('days').addEventListener('click', (e) => {
@@ -368,7 +380,7 @@ $('days').addEventListener('click', (e) => {
 
 $('settings-btn').addEventListener('click', openSettings);
 $('sheet-backdrop').addEventListener('click', closeSettings);
-bindGroupGrid($('settings-groups'), (names) => { state.selected = names; });
+bindGroupGrid($('settings-groups'), (cols) => { state.selected = cols; });
 $('sheet-save').addEventListener('click', () => {
   if (!state.selected.length) return closeSettings();
   localStorage.setItem(GROUPS_KEY, JSON.stringify(state.selected));
@@ -384,7 +396,7 @@ document.addEventListener('touchend', (e) => {
   const dx = e.changedTouches[0].clientX - touchX;
   touchX = null;
   if (Math.abs(dx) < 70 || $('app').hidden) return;
-  if (document.querySelector('.timeline.multi') && selectedGroups().length > 2) return; // יש גלילה אופקית פנימית
+  if (selectedGroups().length > 2) return; // יש גלילה אופקית פנימית
   const dir = dx > 0 ? 1 : -1; // RTL: החלקה ימינה = היום הבא
   const next = state.dayIndex + dir;
   if (next >= 0 && next < state.model.days.length) {
@@ -405,3 +417,5 @@ setInterval(() => {
 
 loadModel(onModel);
 startAutoRefresh(onModel);
+refreshTicker();
+setInterval(refreshTicker, 3 * 60 * 1000);

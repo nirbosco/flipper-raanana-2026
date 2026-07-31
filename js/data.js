@@ -4,7 +4,7 @@
  */
 import { buildModel, EXPORT_URL } from './parser.js';
 
-const CACHE_KEY = 'flipper.model.v1';
+const CACHE_KEY = 'flipper.model.v2'; // v2: קבוצות לפי עמודה + מדריכה
 
 /* ---------- unzip בדפדפן: DataView + DecompressionStream ---------- */
 
@@ -116,6 +116,45 @@ export function startAutoRefresh(onModel) {
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') refresh();
   });
+}
+
+/* ---------- הודעות הפס הרץ (Supabase) ---------- */
+
+import { SUPABASE, hasSupabase } from './config.js';
+
+/** קריאה ציבורית: הודעות פעילות בלבד (RLS). מחזיר [] כשאין חיבור. */
+export async function fetchTickerMessages() {
+  if (!hasSupabase()) return [];
+  try {
+    const res = await fetch(
+      `${SUPABASE.url}/rest/v1/flipper_messages?select=day,text,level,sort&active=eq.true&order=sort&order=created_at`,
+      { headers: { apikey: SUPABASE.key, Authorization: `Bearer ${SUPABASE.key}` } },
+    );
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+/** פעולת ניהול (list/add/update/delete) — נבדקת בצד השרת מול קוד האדמין. */
+export async function adminOp(adminCode, op, msg = {}, msgId = null) {
+  if (!hasSupabase()) throw new Error('אין חיבור הודעות: חסר מפתח ב-js/config.js');
+  const res = await fetch(`${SUPABASE.url}/rest/v1/rpc/flipper_admin_op`, {
+    method: 'POST',
+    headers: {
+      apikey: SUPABASE.key,
+      Authorization: `Bearer ${SUPABASE.key}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ admin_code: adminCode, op, msg, msg_id: msgId }),
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok) {
+    const hint = body && body.message ? body.message : `HTTP ${res.status}`;
+    throw new Error(hint.includes('unauthorized') ? 'קוד אדמין שגוי' : hint);
+  }
+  return body;
 }
 
 /* ---------- זמן ישראל ---------- */

@@ -2,19 +2,27 @@
  "sheetId": "1soicEw_7X2vz8ju3w3yOKLGMW0bmz6VznIb7MUGSpXI",
  "groups": [
   {
+   "col": 1,
    "name": "יעל",
+   "instructor": "",
    "ages": "גילאי 6-7"
   },
   {
+   "col": 2,
    "name": "מיה",
+   "instructor": "",
    "ages": "גילאי 8-9"
   },
   {
+   "col": 3,
    "name": "גילבי",
+   "instructor": "",
    "ages": "גילאי 9-10"
   },
   {
+   "col": 4,
    "name": "ריי",
+   "instructor": "",
    "ages": "גילאי 10-11"
   }
  ],
@@ -28,19 +36,27 @@
    "intro": "פותחים את המחזור: שיחת פתיחה, נהלים, סיור בבריכה ובמקלט וחלוקה לקבוצות. שיעור השחייה הראשון מוקדש להיכרות עם המים ועם המדריכים.",
    "groups": [
     {
+     "col": 1,
      "name": "יעל",
+     "instructor": "",
      "ages": "גילאי 6-7"
     },
     {
+     "col": 2,
      "name": "מיה",
+     "instructor": "",
      "ages": "גילאי 8-9"
     },
     {
+     "col": 3,
      "name": "גילבי",
+     "instructor": "",
      "ages": "גילאי 9-10"
     },
     {
+     "col": 4,
      "name": "ריי",
+     "instructor": "",
      "ages": "גילאי 10-11"
     }
    ],
@@ -57,6 +73,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -72,6 +94,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -83,6 +111,9 @@
      "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "opening",
      "timeSource": "grid"
@@ -96,6 +127,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -107,6 +141,9 @@
      "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "opening",
      "timeSource": "grid"
@@ -120,6 +157,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -131,6 +171,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -144,6 +187,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -155,6 +201,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "food",
      "timeSource": "grid"
@@ -168,6 +217,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -179,6 +231,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -192,6 +247,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "freeswim",
      "timeSource": "grid"
     },
@@ -203,6 +261,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "food",
      "timeSource": "grid"
@@ -216,6 +277,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "freeswim",
      "timeSource": "grid"
     },
@@ -227,6 +291,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -240,6 +307,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "freeswim",
      "timeSource": "grid"
     },
@@ -251,6 +321,9 @@
      "label": "זמן משחק בבריכה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "freeswim",
      "timeSource": "grid"
@@ -264,6 +337,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
@@ -276,6 +352,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -288,6 +367,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -299,6 +381,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "food",
      "timeSource": "grid"
@@ -312,6 +397,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -323,6 +411,9 @@
      "label": "המשך משחקי היכרות, המנון לקבוצה, קליפ ודגל",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "opening",
      "timeSource": "grid"
@@ -336,6 +427,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -347,6 +441,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "food",
      "timeSource": "grid"
@@ -363,6 +460,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "explicit"
     },
@@ -378,6 +481,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "grid"
     },
@@ -391,6 +500,10 @@
       "יעל",
       "מיה"
      ],
+     "cols": [
+      1,
+      2
+     ],
      "category": "games",
      "timeSource": "grid"
     },
@@ -403,6 +516,10 @@
      "groups": [
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      3,
+      4
      ],
      "category": "games",
      "timeSource": "grid"
@@ -417,6 +534,10 @@
       "יעל",
       "מיה"
      ],
+     "cols": [
+      1,
+      2
+     ],
      "category": "games",
      "timeSource": "grid"
     },
@@ -429,6 +550,10 @@
      "groups": [
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      3,
+      4
      ],
      "category": "games",
      "timeSource": "grid"
@@ -445,6 +570,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "grid"
     }
@@ -459,19 +590,27 @@
    "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
    "groups": [
     {
+     "col": 1,
      "name": "יעל",
+     "instructor": "",
      "ages": "גילאי 6-7"
     },
     {
+     "col": 2,
      "name": "מיה",
+     "instructor": "",
      "ages": "גילאי 8-9"
     },
     {
+     "col": 3,
      "name": "גילבי",
+     "instructor": "",
      "ages": "גילאי 9-10"
     },
     {
+     "col": 4,
      "name": "ריי",
+     "instructor": "",
      "ages": "גילאי 10-11"
     }
    ],
@@ -488,6 +627,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -499,6 +644,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -512,6 +660,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "artistic",
      "timeSource": "explicit"
     },
@@ -523,6 +674,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -536,6 +690,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "artistic",
      "timeSource": "explicit"
     },
@@ -547,6 +704,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "food",
      "timeSource": "grid"
@@ -560,6 +720,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -571,6 +734,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -584,6 +750,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -595,6 +764,9 @@
      "label": "שחייה אומנותית",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "artistic",
      "timeSource": "explicit"
@@ -608,6 +780,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -619,6 +794,9 @@
      "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -632,6 +810,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "artistic",
      "timeSource": "explicit"
     },
@@ -643,6 +824,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "food",
      "timeSource": "grid"
@@ -656,6 +840,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -667,6 +854,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "food",
      "timeSource": "grid"
@@ -680,6 +870,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "games",
      "timeSource": "grid"
     },
@@ -692,6 +885,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -703,6 +899,9 @@
      "label": "משחקי שליחים",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "games",
      "timeSource": "explicit"
@@ -719,6 +918,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "explicit"
     },
@@ -733,6 +938,12 @@
       "מיה",
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
      ],
      "category": "closing",
      "timeSource": "grid"
@@ -749,6 +960,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "movie",
      "timeSource": "grid"
     },
@@ -764,6 +981,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "grid"
     }
@@ -778,19 +1001,27 @@
    "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
    "groups": [
     {
+     "col": 1,
      "name": "יעל",
+     "instructor": "",
      "ages": "גילאי 6-7"
     },
     {
+     "col": 2,
      "name": "מיה",
+     "instructor": "",
      "ages": "גילאי 8-9"
     },
     {
+     "col": 3,
      "name": "גילבי",
+     "instructor": "",
      "ages": "גילאי 9-10"
     },
     {
+     "col": 4,
      "name": "ריי",
+     "instructor": "",
      "ages": "גילאי 10-11"
     }
    ],
@@ -807,6 +1038,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -818,6 +1055,9 @@
      "label": "חפש את המטמון",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "treasure",
      "timeSource": "grid"
@@ -831,6 +1071,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
@@ -842,6 +1085,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "food",
      "timeSource": "grid"
@@ -855,6 +1101,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "waterpolo",
      "timeSource": "explicit"
     },
@@ -866,6 +1115,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -879,6 +1131,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "waterpolo",
      "timeSource": "explicit"
     },
@@ -890,6 +1145,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "food",
      "timeSource": "grid"
@@ -903,6 +1161,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -914,6 +1175,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -927,17 +1191,23 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "rest",
      "timeSource": "grid"
     },
     {
-     "start": "10:30",
+     "start": "10:20",
      "end": "11:00",
-     "startMin": 630,
+     "startMin": 620,
      "endMin": 660,
      "label": "כדור מים",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "waterpolo",
      "timeSource": "explicit"
@@ -951,6 +1221,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -963,17 +1236,23 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
     {
      "start": "11:00",
-     "end": "11:30",
+     "end": "11:40",
      "startMin": 660,
-     "endMin": 690,
+     "endMin": 700,
      "label": "כדור מים",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "waterpolo",
      "timeSource": "explicit"
@@ -987,6 +1266,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "treasure",
      "timeSource": "grid"
     },
@@ -999,17 +1281,23 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "treasure",
      "timeSource": "grid"
     },
     {
-     "start": "11:30",
-     "end": "11:45",
-     "startMin": 690,
-     "endMin": 705,
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
-      "מיה"
+      "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1021,7 +1309,10 @@
      "endMin": 720,
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
-      "יעל"
+      "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1034,6 +1325,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1047,19 +1341,55 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "treasure",
      "timeSource": "grid"
     },
     {
-     "start": "12:15",
+     "start": "12:00",
      "end": "12:30",
-     "startMin": 735,
+     "startMin": 720,
      "endMin": 750,
      "label": "ג'ימבורי",
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:45",
+     "startMin": 720,
+     "endMin": 765,
+     "label": "משחקי כדור- מדריך",
+     "groups": [
+      "גילבי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "13:15",
+     "startMin": 720,
+     "endMin": 795,
+     "label": "יצירה- קולאז' טבע",
+     "groups": [
+      "מיה"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
      "timeSource": "grid"
     },
     {
@@ -1070,6 +1400,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1083,17 +1416,8 @@
      "groups": [
       "יעל"
      ],
-     "category": "games",
-     "timeSource": "explicit"
-    },
-    {
-     "start": "12:30",
-     "end": "13:15",
-     "startMin": 750,
-     "endMin": 795,
-     "label": "משחקי שליחים",
-     "groups": [
-      "מיה"
+     "cols": [
+      1
      ],
      "category": "games",
      "timeSource": "explicit"
@@ -1107,6 +1431,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "games",
      "timeSource": "grid"
     },
@@ -1118,6 +1445,9 @@
      "label": "ג'ימבורי",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "games",
      "timeSource": "grid"
@@ -1134,6 +1464,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "explicit"
     },
@@ -1148,6 +1484,12 @@
       "מיה",
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
      ],
      "category": "closing",
      "timeSource": "grid"
@@ -1164,6 +1506,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "freeswim",
      "timeSource": "grid"
     },
@@ -1179,6 +1527,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "grid"
     }
@@ -1193,19 +1547,27 @@
    "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
    "groups": [
     {
+     "col": 1,
      "name": "יעל",
+     "instructor": "",
      "ages": "גילאי 6-7"
     },
     {
+     "col": 2,
      "name": "מיה",
+     "instructor": "",
      "ages": "גילאי 8-9"
     },
     {
+     "col": 3,
      "name": "גילבי",
+     "instructor": "",
      "ages": "גילאי 9-10"
     },
     {
+     "col": 4,
      "name": "ריי",
+     "instructor": "",
      "ages": "גילאי 10-11"
     }
    ],
@@ -1222,6 +1584,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -1234,7 +1602,55 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:00",
+     "end": "09:20",
+     "startMin": 540,
+     "endMin": 560,
+     "label": "חבילה עוברת",
+     "groups": [
+      "מיה"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:00",
+     "end": "09:30",
+     "startMin": 540,
+     "endMin": 570,
+     "label": "חבילה עוברת",
+     "groups": [
+      "גילבי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:00",
+     "end": "10:00",
+     "startMin": 540,
+     "endMin": 600,
+     "label": "הישרדות",
+     "groups": [
+      "ריי"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
      "timeSource": "explicit"
     },
     {
@@ -1245,6 +1661,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -1258,6 +1677,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1269,6 +1691,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1282,6 +1707,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
@@ -1294,7 +1722,25 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "חבילה עוברת",
+     "groups": [
+      "יעל"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
      "timeSource": "grid"
     },
     {
@@ -1305,6 +1751,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1318,10 +1767,28 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
     {
+     "start": "10:30",
+     "end": "11:30",
+     "startMin": 630,
+     "endMin": 690,
+     "label": "הישרדות",
+     "groups": [
+      "גילבי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
      "start": "10:45",
      "end": "11:00",
      "startMin": 645,
@@ -1329,6 +1796,9 @@
      "label": "התארגנות ומעבר לסטודיו",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "transition",
      "timeSource": "grid"
@@ -1341,6 +1811,9 @@
      "label": "התארגנות ומעבר לסטודיו",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "transition",
      "timeSource": "grid"
@@ -1354,17 +1827,23 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "defense",
      "timeSource": "explicit"
     },
     {
      "start": "11:00",
-     "end": "11:46",
+     "end": "11:45",
      "startMin": 660,
-     "endMin": 706,
+     "endMin": 705,
      "label": "הגנה עצמית",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "defense",
      "timeSource": "explicit"
@@ -1378,6 +1857,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "transition",
      "timeSource": "grid"
     },
@@ -1390,7 +1872,40 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "transition",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
      "timeSource": "grid"
     },
     {
@@ -1401,6 +1916,9 @@
      "label": "הגנה עצמית",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "defense",
      "timeSource": "explicit"
@@ -1414,43 +1932,40 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "defense",
      "timeSource": "explicit"
     },
     {
      "start": "12:00",
-     "end": "12:15",
+     "end": "13:00",
      "startMin": 720,
-     "endMin": 735,
-     "label": "הפסקת מים, פירות וקרם הגנה",
-     "groups": [
-      "יעל"
-     ],
-     "category": "food",
-     "timeSource": "grid"
-    },
-    {
-     "start": "12:00",
-     "end": "12:15",
-     "startMin": 720,
-     "endMin": 735,
-     "label": "הפסקת מים, פירות וקרם הגנה",
+     "endMin": 780,
+     "label": "הישרדות",
      "groups": [
       "מיה"
      ],
-     "category": "food",
-     "timeSource": "grid"
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
     },
     {
-     "start": "12:15",
-     "end": "12:30",
-     "startMin": 735,
-     "endMin": 750,
-     "label": "ג'ימבורי",
+     "start": "12:00",
+     "end": "13:15",
+     "startMin": 720,
+     "endMin": 795,
+     "label": "יצירה- קולאז' טבע",
      "groups": [
       "יעל"
      ],
-     "category": "games",
+     "cols": [
+      1
+     ],
+     "category": "activity",
      "timeSource": "grid"
     },
     {
@@ -1462,6 +1977,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1470,12 +1988,15 @@
      "end": "13:15",
      "startMin": 750,
      "endMin": 795,
-     "label": "משחקי שליחים",
+     "label": "משחק כדור קבוצתי",
      "groups": [
-      "יעל"
+      "גילבי"
      ],
-     "category": "games",
-     "timeSource": "explicit"
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
     },
     {
      "start": "13:15",
@@ -1488,6 +2009,12 @@
       "מיה",
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
      ],
      "category": "closing",
      "timeSource": "explicit"
@@ -1503,6 +2030,12 @@
       "מיה",
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
      ],
      "category": "closing",
      "timeSource": "grid"
@@ -1519,6 +2052,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "movie",
      "timeSource": "grid"
     },
@@ -1534,6 +2073,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "grid"
     }
@@ -1548,19 +2093,27 @@
    "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
    "groups": [
     {
+     "col": 1,
      "name": "יעל",
+     "instructor": "",
      "ages": "גילאי 6-7"
     },
     {
+     "col": 2,
      "name": "מיה",
+     "instructor": "",
      "ages": "גילאי 8-9"
     },
     {
+     "col": 3,
      "name": "גילבי",
+     "instructor": "",
      "ages": "גילאי 9-10"
     },
     {
+     "col": 4,
      "name": "ריי",
+     "instructor": "",
      "ages": "גילאי 10-11"
     }
    ],
@@ -1577,6 +2130,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "opening",
      "timeSource": "grid"
     },
@@ -1592,6 +2151,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "guest",
      "timeSource": "explicit"
     },
@@ -1603,6 +2168,9 @@
      "label": "התארגנות ושיעור שחייה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -1616,6 +2184,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1628,6 +2199,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1639,6 +2213,9 @@
      "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1652,6 +2229,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
@@ -1663,6 +2243,9 @@
      "label": "זמן משחק בבריכה",
      "groups": [
       "גילבי"
+     ],
+     "cols": [
+      3
      ],
      "category": "freeswim",
      "timeSource": "grid"
@@ -1676,6 +2259,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1687,6 +2273,9 @@
      "label": "זמן משחק בבריכה",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "freeswim",
      "timeSource": "grid"
@@ -1700,6 +2289,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "swim",
      "timeSource": "explicit"
     },
@@ -1712,6 +2304,9 @@
      "groups": [
       "ריי"
      ],
+     "cols": [
+      4
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1723,6 +2318,9 @@
      "label": "זמן משחק בבריכה",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "freeswim",
      "timeSource": "grid"
@@ -1736,6 +2334,9 @@
      "groups": [
       "מיה"
      ],
+     "cols": [
+      2
+     ],
      "category": "freeswim",
      "timeSource": "grid"
     },
@@ -1747,6 +2348,9 @@
      "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
      "groups": [
       "ריי"
+     ],
+     "cols": [
+      4
      ],
      "category": "swim",
      "timeSource": "explicit"
@@ -1760,6 +2364,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1771,6 +2378,9 @@
      "label": "הפסקת מים, פירות וקרם הגנה",
      "groups": [
       "מיה"
+     ],
+     "cols": [
+      2
      ],
      "category": "food",
      "timeSource": "grid"
@@ -1784,6 +2394,9 @@
      "groups": [
       "גילבי"
      ],
+     "cols": [
+      3
+     ],
      "category": "food",
      "timeSource": "grid"
     },
@@ -1796,6 +2409,9 @@
      "groups": [
       "יעל"
      ],
+     "cols": [
+      1
+     ],
      "category": "games",
      "timeSource": "grid"
     },
@@ -1807,6 +2423,9 @@
      "label": "משחקי שליחים",
      "groups": [
       "יעל"
+     ],
+     "cols": [
+      1
      ],
      "category": "games",
      "timeSource": "explicit"
@@ -1823,6 +2442,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "explicit"
     },
@@ -1837,6 +2462,12 @@
       "מיה",
       "גילבי",
       "ריי"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
      ],
      "category": "closing",
      "timeSource": "grid"
@@ -1853,6 +2484,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "freeswim",
      "timeSource": "grid"
     },
@@ -1868,6 +2505,12 @@
       "גילבי",
       "ריי"
      ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
      "category": "closing",
      "timeSource": "grid"
     }
@@ -1875,5 +2518,5 @@
   }
  ],
  "messages": [],
- "generatedAt": "2026-07-31T21:00:41.655Z"
+ "generatedAt": "2026-07-31T21:19:08.746Z"
 }

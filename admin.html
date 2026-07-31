@@ -8,34 +8,70 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .admin-wrap { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; }
     .admin-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
-    .admin-head .logo { width: 52px; height: 52px; }
-    .admin-head h1 { font-size: 26px; color: var(--brand-2); }
+    .admin-head .logo { width: 46px; height: 46px; color: var(--brand); }
+    .admin-head .logo svg { width: 100%; height: 100%; }
+    .admin-head h1 { font-size: 25px; color: var(--brand); }
     .admin-sub { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 22px; }
     .panel { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-soft); padding: 18px; margin-bottom: 16px; }
     .panel h2 { font-size: 18px; margin-bottom: 8px; }
     .panel p, .panel li { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
     .panel ol, .panel ul { padding-inline-start: 20px; margin-top: 6px; }
-    .panel code { background: #eef6fa; border-radius: 6px; padding: 1px 7px; font-size: 13px; color: var(--brand-2); direction: ltr; display: inline-block; }
+    .panel code { background: #eef3fa; border-radius: 6px; padding: 1px 7px; font-size: 13px; color: var(--brand); direction: ltr; display: inline-block; }
     .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
     .btn {
       display: inline-flex; align-items: center; gap: 7px;
-      background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+      background: linear-gradient(135deg, var(--brand-light), var(--brand));
       color: #fff; font-weight: 600; font-size: 14.5px;
-      padding: 10px 20px; border-radius: 12px; text-decoration: none;
+      padding: 10px 20px; border-radius: 10px; text-decoration: none;
+      border: 0; cursor: pointer;
     }
-    .btn.ghost { background: #fff; color: var(--brand-2); border: 1.5px solid var(--line); }
+    .btn.ghost { background: #fff; color: var(--brand); border: 1.5px solid var(--line); }
+    .btn.danger { background: #fff; color: #c0453c; border: 1.5px solid #ecc8c4; padding: 7px 13px; font-size: 13px; }
+    .btn.small { padding: 7px 13px; font-size: 13px; }
+    .btn:disabled { opacity: .5; cursor: default; }
     table.preview { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
     table.preview th, table.preview td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: right; vertical-align: top; }
-    table.preview th { color: var(--ink-soft); font-weight: 600; background: #f6fbfd; }
-    .warn-item { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; background: #fef9ec; border: 1px solid #fde68a; margin-bottom: 8px; font-size: 13.5px; }
-    .ok-item { background: #ecfdf3; border-color: #bbf7d0; }
-    .msg-example { background: #f6fbfd; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-top: 8px; overflow-x: auto; }
+    table.preview th { color: var(--ink-soft); font-weight: 600; background: #f5f8fc; }
+    .warn-item { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border-radius: 8px; background: #fdf6e6; border: 1px solid #f3ddb0; margin-bottom: 8px; font-size: 13.5px; }
+    .ok-item { background: #edf7ef; border-color: #c4e3c9; }
+    .err-item { background: #fbeeec; border-color: #ecc8c4; }
     #status { font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
+
+    /* ניהול הודעות */
+    .msg-form { display: grid; gap: 10px; grid-template-columns: 110px 1fr; align-items: center; margin-top: 12px; }
+    .msg-form label { font-size: 13px; color: var(--ink-soft); }
+    .msg-form input[type="text"], .msg-form select, .code-row input {
+      font: inherit; font-size: 14px; color: var(--ink);
+      border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 10px; width: 100%;
+      background: #fff;
+    }
+    .msg-form .check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); }
+    .code-row { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+    .code-row input { max-width: 220px; }
+    .msg-item {
+      display: flex; gap: 10px; align-items: center;
+      border: 1px solid var(--line); border-radius: 8px;
+      padding: 8px 12px; margin-top: 8px; font-size: 14px;
+      background: #fdfefe;
+    }
+    .msg-item.inactive { opacity: .5; }
+    .msg-item .m-day {
+      flex: 0 0 auto; font-size: 12px; font-weight: 600; color: var(--brand);
+      background: #eef3fa; border-radius: 99px; padding: 3px 10px;
+    }
+    .msg-item .m-text { flex: 1; min-width: 0; }
+    .msg-item .m-badge { font-size: 11px; font-weight: 700; color: #c0453c; }
+    .msg-item .m-actions { display: flex; gap: 6px; flex: 0 0 auto; }
+    .msg-item .mini {
+      font-size: 12px; padding: 4px 9px; border-radius: 7px;
+      border: 1px solid var(--line); background: #fff; cursor: pointer;
+    }
+    #msgs-disabled { margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -44,13 +80,43 @@
       <div class="logo" id="admin-logo"></div>
       <h1>ניהול הקייטנה</h1>
     </div>
-    <p class="admin-sub">מאחורי הקלעים של הלו"ז. כל שינוי בגיליון מגיע להורים בתוך דקות, בלי לגעת בקוד.</p>
+    <p class="admin-sub">מאחורי הקלעים של הלו"ז. הודעות מנהלים כאן; את הלו"ז עורכים בגיליון והוא מגיע להורים בתוך דקות.</p>
+
+    <div class="panel">
+      <h2>הודעות להורים (הפס הרץ)</h2>
+      <p>ההודעות מוצגות בפס הרץ שבראש האפליקציה. הודעה בלי יום מוצגת כל השבוע; הודעה עם יום מוצגת רק בו. "חשוב" מבליט בצבע.</p>
+
+      <div class="code-row">
+        <label for="admin-code" style="font-size:13px;color:var(--ink-soft)">קוד אדמין:</label>
+        <input type="password" id="admin-code" placeholder="הקוד שקיבלת" autocomplete="off">
+        <button class="btn small" id="code-connect">התחברות</button>
+      </div>
+
+      <div id="msgs-disabled" class="warn-item" hidden></div>
+
+      <div id="msgs-manager" hidden>
+        <div class="msg-form">
+          <label for="m-day">יום</label>
+          <select id="m-day"><option value="">כל הימים</option></select>
+          <label for="m-text">ההודעה</label>
+          <input type="text" id="m-text" maxlength="300" placeholder="למשל: מחר להביא נעליים סגורות">
+          <span></span>
+          <span class="check"><input type="checkbox" id="m-important"> <label for="m-important">הודעה חשובה (מובלטת)</label></span>
+          <span></span>
+          <div class="btn-row" style="margin-top:0">
+            <button class="btn small" id="m-add">הוספת הודעה</button>
+          </div>
+        </div>
+        <div id="msgs-list"></div>
+      </div>
+    </div>
 
     <div class="panel">
       <h2>איך מעדכנים את הלו"ז?</h2>
-      <p>הגיליון בגוגל הוא מקור האמת היחיד. עורכים אותו, והאפליקציה מתעדכנת לבד (רענון אוטומטי כל 5 דקות ובכל פתיחה של האפליקציה).</p>
+      <p>הגיליון בגוגל הוא מקור האמת של הלו"ז. עורכים אותו, והאפליקציה מתעדכנת לבד (רענון אוטומטי כל 5 דקות ובכל פתיחה של האפליקציה).</p>
       <ul>
         <li>כל יום יושב בטאב משלו: <code>יום א 2.8</code> עד <code>יום ה 6.8</code>. טאב חדש באותו פורמט ייקלט אוטומטית.</li>
+        <li>שם קבוצה בשורת הכותרת אפשר לכתוב גם בפורמט <code>קבוצת אלמוגים - יעל - גילאי 6-7</code>, והאפליקציה תציג שם, מדריכה וגילאים.</li>
         <li>פעילות שחלה על כמה קבוצות או כמה שעות: פשוט מזגו את התאים (Merge). האפליקציה מבינה מיזוגים.</li>
         <li>שעה מדויקת בתוך הטקסט, למשל <code>(9:50-10:40)</code>, גוברת על שורת הגריד. ככה הלו"ז יושב בול על הזמנים.</li>
         <li>שורת הכותרת של כל טאב קובעת את נושא היום (מה שאחרי המקף).</li>
@@ -59,23 +125,6 @@
         <a class="btn" id="sheet-link" target="_blank" rel="noopener">פתיחת הגיליון לעריכה</a>
         <a class="btn ghost" href="index.html">חזרה לאפליקציה</a>
       </div>
-    </div>
-
-    <div class="panel">
-      <h2>הודעות להורים (הפס הרץ)</h2>
-      <p>מוסיפים לגיליון טאב חדש בשם <code>הודעות</code> עם ארבע עמודות. כל שורה היא הודעה אחת בפס הרץ שלמעלה:</p>
-      <div class="msg-example">
-        <table class="preview">
-          <tr><th>עמודה A — תאריך</th><th>עמודה B — קבוצה</th><th>עמודה C — ההודעה</th><th>עמודה D — סוג</th></tr>
-          <tr><td>2.8</td><td></td><td>היום להביא נעליים סגורות!</td><td>חשוב</td></tr>
-          <tr><td></td><td></td><td>לא לשכוח: קרם הגנה, כובע ובקבוק מים</td><td></td></tr>
-          <tr><td>4.8</td><td>ריי</td><td>קבוצת ריי מסיימת היום ב-13:30</td><td>חשוב</td></tr>
-        </table>
-      </div>
-      <ul>
-        <li>תאריך ריק = ההודעה מוצגת כל יום. קבוצה ריקה = לכל ההורים.</li>
-        <li><code>חשוב</code> בעמודה D צובע את ההודעה ומבליט אותה.</li>
-      </ul>
     </div>
 
     <div class="panel">
@@ -88,54 +137,136 @@
   </div>
 
   <script type="module">
-    import { loadModel, israelNow } from './js/data.js';
+    import { loadModel, israelNow, adminOp, fetchTickerMessages } from './js/data.js';
+    import { hasSupabase } from './js/config.js';
     import { LOGO, categoryMeta } from './js/icons.js';
     import { SHEET_URL } from './js/parser.js';
 
     document.getElementById('admin-logo').innerHTML = LOGO();
     document.getElementById('sheet-link').href = SHEET_URL;
 
+    const $ = (id) => document.getElementById(id);
     const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-    function toMin(t) { const [h, m] = t.split(':').map(Number); return h * 60 + m; }
+    /* ---------- ניהול הודעות ---------- */
+
+    const CODE_KEY = 'flipper.admin.code';
+    let dayOptions = [];
+
+    function renderMsgs(list) {
+      $('msgs-list').innerHTML = list.length ? list.map((m) => `
+        <div class="msg-item ${m.active ? '' : 'inactive'}" data-id="${m.id}">
+          <span class="m-day">${m.day ? esc(m.day) : 'כל הימים'}</span>
+          <span class="m-text">${esc(m.text)} ${m.level === 'important' ? '<span class="m-badge">חשוב</span>' : ''}</span>
+          <span class="m-actions">
+            <button class="mini" data-act="toggle">${m.active ? 'השהיה' : 'הפעלה'}</button>
+            <button class="mini" data-act="delete">מחיקה</button>
+          </span>
+        </div>`).join('')
+        : '<p style="margin-top:10px">אין עדיין הודעות. ההורים רואים בינתיים את הודעות ברירת המחדל (קרם הגנה, כובע, מים).</p>';
+    }
+
+    async function connectMsgs(code) {
+      const list = await adminOp(code, 'list');
+      localStorage.setItem(CODE_KEY, code);
+      $('msgs-manager').hidden = false;
+      $('msgs-disabled').hidden = true;
+      renderMsgs(list);
+    }
+
+    $('code-connect').addEventListener('click', async () => {
+      const code = $('admin-code').value.trim();
+      if (!code) return;
+      try { await connectMsgs(code); }
+      catch (err) {
+        $('msgs-disabled').hidden = false;
+        $('msgs-disabled').className = 'warn-item err-item';
+        $('msgs-disabled').textContent = '⚠️ ' + err.message;
+      }
+    });
+
+    $('m-add').addEventListener('click', async () => {
+      const text = $('m-text').value.trim();
+      if (!text) return;
+      const code = localStorage.getItem(CODE_KEY) || $('admin-code').value.trim();
+      try {
+        await adminOp(code, 'add', {
+          day: $('m-day').value,
+          text,
+          level: $('m-important').checked ? 'important' : 'normal',
+        });
+        $('m-text').value = '';
+        $('m-important').checked = false;
+        renderMsgs(await adminOp(code, 'list'));
+      } catch (err) { alert(err.message); }
+    });
+
+    $('msgs-list').addEventListener('click', async (e) => {
+      const btn = e.target.closest('button[data-act]');
+      if (!btn) return;
+      const item = btn.closest('.msg-item');
+      const id = item.dataset.id;
+      const code = localStorage.getItem(CODE_KEY) || $('admin-code').value.trim();
+      try {
+        if (btn.dataset.act === 'delete') {
+          if (!confirm('למחוק את ההודעה?')) return;
+          await adminOp(code, 'delete', {}, id);
+        } else {
+          await adminOp(code, 'update', { active: item.classList.contains('inactive') }, id);
+        }
+        renderMsgs(await adminOp(code, 'list'));
+      } catch (err) { alert(err.message); }
+    });
+
+    if (!hasSupabase()) {
+      $('msgs-disabled').hidden = false;
+      $('msgs-disabled').textContent = '⚠️ חיבור ההודעות עוד לא הופעל: חסר המפתח הציבורי של Supabase ב-js/config.js. עד אז הפס הרץ מציג הודעות ברירת מחדל.';
+      document.querySelector('.code-row').style.display = 'none';
+    } else {
+      const saved = localStorage.getItem(CODE_KEY);
+      if (saved) { $('admin-code').value = saved; connectMsgs(saved).catch(() => {}); }
+    }
+
+    /* ---------- תקינות הלו"ז ---------- */
 
     function validate(model) {
       const warns = [];
       for (const day of model.days) {
         if (!day.theme) warns.push(`בטאב "${day.tab}" כותרת היום לא תואמת את שם הטאב, אז נושא היום לא מוצג. שווה לעדכן את שורת הכותרת.`);
-        for (const g of model.groups.map((x) => x.name)) {
+        for (const g of model.groups) {
           const mine = day.activities
-            .filter((a) => a.groups.includes(g))
+            .filter((a) => a.cols.includes(g.col))
             .sort((a, b) => a.startMin - b.startMin);
           for (let i = 0; i < mine.length - 1; i++) {
             const gap = mine[i + 1].startMin - mine[i].endMin;
-            if (gap >= 30) warns.push(`יום ${day.dayLetter} · ${g}: חור של ${gap} דקות בין "${mine[i].label}" (עד ${mine[i].end}) ל"${mine[i + 1].label}" (${mine[i + 1].start}).`);
-            if (gap < 0) warns.push(`יום ${day.dayLetter} · ${g}: חפיפה בין "${mine[i].label}" ל"${mine[i + 1].label}".`);
+            if (gap >= 30) warns.push(`יום ${day.dayLetter} · ${g.name}: חור של ${gap} דקות בין "${mine[i].label}" (עד ${mine[i].end}) ל"${mine[i + 1].label}" (${mine[i + 1].start}).`);
+            if (gap < 0) warns.push(`יום ${day.dayLetter} · ${g.name}: חפיפה בין "${mine[i].label}" ל"${mine[i + 1].label}".`);
           }
-          const weird = mine.find((a) => a.endMin - a.startMin > 90 && a.category !== 'closing');
-          if (weird) warns.push(`יום ${day.dayLetter} · ${g}: "${weird.label}" נמשך ${weird.endMin - weird.startMin} דקות (${weird.start}–${weird.end}). לוודא שזה מכוון.`);
           const odd = mine.find((a) => a.endMin % 5 !== 0 || a.startMin % 5 !== 0);
-          if (odd) warns.push(`יום ${day.dayLetter} · ${g}: שעה חריגה ב"${odd.label}" (${odd.start}–${odd.end}) — כנראה טעות הקלדה בגיליון.`);
+          if (odd) warns.push(`יום ${day.dayLetter} · ${g.name}: שעה חריגה ב"${odd.label}" (${odd.start}–${odd.end}) — כנראה טעות הקלדה בגיליון.`);
         }
       }
-      if (!model.messages.length) warns.push('אין עדיין טאב "הודעות" בגיליון. הפס הרץ מציג בינתיים הודעות ברירת מחדל.');
       return warns;
     }
 
     loadModel((model) => {
-      if (model.source === 'cache') return; // מחכים לגרסה החיה
-      const status = document.getElementById('status');
+      if (model.source === 'cache') return;
+      // ימי הקייטנה גם לטופס ההודעות
+      dayOptions = model.days.map((d) => d.dateLabel);
+      $('m-day').innerHTML = '<option value="">כל הימים</option>' +
+        model.days.map((d) => `<option value="${esc(d.dateLabel)}">יום ${d.dayLetter}׳ ${esc(d.dateLabel)}</option>`).join('');
+
+      const status = $('status');
       status.textContent = model.source === 'live'
-        ? `הגיליון נמשך בהצלחה. ${model.days.length} ימים, ${model.days.reduce((n, d) => n + d.activities.length, 0)} פעילויות, ${model.messages.length} הודעות.`
+        ? `הגיליון נמשך בהצלחה. ${model.days.length} ימים, ${model.days.reduce((n, d) => n + d.activities.length, 0)} פעילויות.`
         : 'לא הצלחנו למשוך את הגיליון החי, מציגים נתונים שמורים.';
 
       const warns = validate(model);
-      document.getElementById('checks').innerHTML = warns.length
+      $('checks').innerHTML = warns.length
         ? warns.map((w) => `<div class="warn-item">⚠️ ${esc(w)}</div>`).join('')
         : '<div class="warn-item ok-item">✅ הכול נקלט נקי. אין הערות.</div>';
 
-      const dupes = new Set();
-      document.getElementById('preview').innerHTML = model.days.map((day) => `
+      $('preview').innerHTML = model.days.map((day) => `
         <details ${day.date === israelNow().date ? 'open' : ''}>
           <summary style="cursor:pointer;font-weight:600;padding:8px 0">יום ${day.dayLetter} · ${day.dateLabel}${day.theme ? ' · ' + esc(day.theme) : ''}</summary>
           <table class="preview">
@@ -144,7 +275,7 @@
               <tr>
                 <td dir="ltr" style="text-align:end">${a.start}–${a.end}</td>
                 <td>${esc(a.label)}</td>
-                <td>${a.groups.length === model.groups.length ? 'כולם' : esc(a.groups.join(', '))}</td>
+                <td>${a.cols.length === model.groups.length ? 'כולם' : esc(a.groups.join(', '))}</td>
                 <td>${esc(categoryMeta(a.category).label)}</td>
               </tr>`).join('')}
           </table>

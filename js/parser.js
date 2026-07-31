@@ -142,6 +142,31 @@ function cellTime(text) {
 
 const fmt = (min) => `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
 
+/**
+ * כותרת עמודת קבוצה, בכל הפורמטים שהגיליון עבר ויעבור:
+ *   "יעל (גילאי 6-7)"                      → name=יעל, ages=גילאי 6-7
+ *   "קבוצת דולפינים - יעל - גילאי 6-7"     → name=קבוצת דולפינים, instructor=יעל, ages=גילאי 6-7
+ *   "דולפינים (יעל, גילאי 6-7)"            → name=דולפינים, instructor=יעל, ages=גילאי 6-7
+ */
+export function parseGroupHeader(text) {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  const isAges = (s) => /גיל|\d\s*[-–]\s*\d/.test(s);
+  const paren = clean.match(/^(.+?)\s*\(([^)]*)\)\s*$/);
+  if (paren) {
+    const inner = paren[2].split(/[,،]/).map((s) => s.trim()).filter(Boolean);
+    const ages = inner.find(isAges) || '';
+    const instructor = inner.find((s) => s !== ages) || '';
+    return { name: paren[1].trim(), instructor, ages };
+  }
+  const parts = clean.split(/\s[-–|·]\s/).map((s) => s.trim()).filter(Boolean);
+  if (parts.length >= 2) {
+    const ages = parts.find(isAges) || '';
+    const rest = parts.filter((p) => p !== ages);
+    return { name: rest[0] || clean, instructor: rest[1] || '', ages };
+  }
+  return { name: clean, instructor: '', ages: '' };
+}
+
 function parseDay(sheet) {
   const tabMatch = sheet.name.match(DAY_TAB_RE);
   if (!tabMatch) return null;
@@ -159,8 +184,7 @@ function parseDay(sheet) {
   for (let col = 1; col < 12; col++) {
     const text = cells.get(headerRow + ',' + col);
     if (!text) continue;
-    const gm = text.match(/(.+?)\s*\(([^)]*)\)/);
-    groups.push({ col, name: gm ? gm[1].trim() : text, ages: gm ? gm[2].trim() : '' });
+    groups.push({ col, ...parseGroupHeader(text) });
   }
 
   const grid = [];
@@ -226,9 +250,12 @@ function parseDay(sheet) {
     }
     label = label.replace(/\s+/g, ' ').replace(/^[\s\-–]+|[\s\-–]+$/g, '').trim();
 
+    const covered = groups.filter((g) => c1 <= g.col && g.col <= c2);
     activities.push({
       start: fmt(start), end: fmt(end), startMin: start, endMin: end,
-      label, groups: groups.filter((g) => c1 <= g.col && g.col <= c2).map((g) => g.name),
+      label,
+      groups: covered.map((g) => g.name),
+      cols: covered.map((g) => g.col),
       category: classify(label), timeSource,
     });
   }
@@ -236,7 +263,7 @@ function parseDay(sheet) {
   // חיתוך חפיפות בתוך קבוצה: טווח מפורש שמתחיל באמצע פעילות-גריד מקצר אותה.
   for (const g of groups) {
     const mine = activities
-      .filter((a) => a.groups.includes(g.name))
+      .filter((a) => a.cols.includes(g.col))
       .sort((a, b) => a.startMin - b.startMin || a.endMin - b.endMin);
     for (let i = 0; i < mine.length - 1; i++) {
       const a = mine[i], b = mine[i + 1];
@@ -263,7 +290,7 @@ function parseDay(sheet) {
     date: `${CAMP_YEAR}-${String(parseInt(mm, 10)).padStart(2, '0')}-${String(parseInt(dd, 10)).padStart(2, '0')}`,
     dateLabel: `${parseInt(dd, 10)}.${parseInt(mm, 10)}`,
     theme, intro,
-    groups: groups.map((g) => ({ name: g.name, ages: g.ages })),
+    groups: groups.map((g) => ({ col: g.col, name: g.name, instructor: g.instructor || '', ages: g.ages })),
     activities,
   };
 }
