@@ -1,0 +1,1879 @@
+{
+ "sheetId": "1soicEw_7X2vz8ju3w3yOKLGMW0bmz6VznIb7MUGSpXI",
+ "groups": [
+  {
+   "name": "יעל",
+   "ages": "גילאי 6-7"
+  },
+  {
+   "name": "מיה",
+   "ages": "גילאי 8-9"
+  },
+  {
+   "name": "גילבי",
+   "ages": "גילאי 9-10"
+  },
+  {
+   "name": "ריי",
+   "ages": "גילאי 10-11"
+  }
+ ],
+ "days": [
+  {
+   "tab": "יום א 2.8",
+   "dayLetter": "א",
+   "date": "2026-08-02",
+   "dateLabel": "2.8",
+   "theme": "יום פתיחה והיכרות",
+   "intro": "פותחים את המחזור: שיחת פתיחה, נהלים, סיור בבריכה ובמקלט וחלוקה לקבוצות. שיעור השחייה הראשון מוקדש להיכרות עם המים ועם המדריכים.",
+   "groups": [
+    {
+     "name": "יעל",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "name": "מיה",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "name": "גילבי",
+     "ages": "גילאי 9-10"
+    },
+    {
+     "name": "ריי",
+     "ages": "גילאי 10-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "09:00",
+     "startMin": 510,
+     "endMin": 540,
+     "label": "שיחת פתיחה - בוקר טוב! היכרות ראשונה עם המדריכים",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:00",
+     "end": "09:30",
+     "startMin": 540,
+     "endMin": 570,
+     "label": "נהלים, סיור בבריכה ובמקלט וחלוקה לקבוצות",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "09:45",
+     "startMin": 570,
+     "endMin": 585,
+     "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "10:00",
+     "startMin": 570,
+     "endMin": 600,
+     "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "10:15",
+     "startMin": 570,
+     "endMin": 615,
+     "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "10:30",
+     "startMin": 570,
+     "endMin": 630,
+     "label": "קבוצתי: משחקי היכרות, שם, המנון, קליפ ודגל",
+     "groups": [
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:50",
+     "end": "10:40",
+     "startMin": 590,
+     "endMin": 640,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:00",
+     "end": "10:30",
+     "startMin": 600,
+     "endMin": 630,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:20",
+     "startMin": 630,
+     "endMin": 680,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:45",
+     "end": "11:10",
+     "startMin": 645,
+     "endMin": 670,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:15",
+     "startMin": 645,
+     "endMin": 675,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "11:45",
+     "startMin": 660,
+     "endMin": 705,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:10",
+     "end": "12:00",
+     "startMin": 670,
+     "endMin": 720,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:15",
+     "end": "12:00",
+     "startMin": 675,
+     "endMin": 720,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "12:00",
+     "startMin": 690,
+     "endMin": 720,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:50",
+     "end": "12:40",
+     "startMin": 710,
+     "endMin": 760,
+     "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:15",
+     "startMin": 735,
+     "endMin": 795,
+     "label": "המשך משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "יעל"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:15",
+     "startMin": 735,
+     "endMin": 795,
+     "label": "המשך משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "מיה"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:15",
+     "startMin": 735,
+     "endMin": 795,
+     "label": "המשך משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:45",
+     "end": "13:15",
+     "startMin": 765,
+     "endMin": 795,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:15",
+     "end": "13:30",
+     "startMin": 795,
+     "endMin": 810,
+     "label": "התארגנות סיום יום קצר + התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "איסוף יום קצר 13:30 ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:15",
+     "startMin": 870,
+     "endMin": 915,
+     "label": "משחקי קופסא בסטודיו",
+     "groups": [
+      "יעל",
+      "מיה"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:15",
+     "startMin": 870,
+     "endMin": 915,
+     "label": "זמן חופשי בג'ימבורי",
+     "groups": [
+      "גילבי",
+      "ריי"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:15",
+     "end": "15:45",
+     "startMin": 915,
+     "endMin": 945,
+     "label": "זמן חופשי בג'ימבורי",
+     "groups": [
+      "יעל",
+      "מיה"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:15",
+     "end": "15:45",
+     "startMin": 915,
+     "endMin": 945,
+     "label": "משחקי קופסא בסטודיו",
+     "groups": [
+      "גילבי",
+      "ריי"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ב 3.8",
+   "dayLetter": "ב",
+   "date": "2026-08-03",
+   "dateLabel": "3.8",
+   "theme": "יום שחייה אומנותית",
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "name": "יעל",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "name": "מיה",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "name": "גילבי",
+     "ages": "גילאי 9-10"
+    },
+    {
+     "name": "ריי",
+     "ages": "גילאי 10-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:50",
+     "startMin": 510,
+     "endMin": 530,
+     "label": "שיחת פתיחה - בוקר טוב ומשחקי בוקר",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:50",
+     "end": "09:40",
+     "startMin": 530,
+     "endMin": 580,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:00",
+     "end": "09:40",
+     "startMin": 540,
+     "endMin": 580,
+     "label": "שחייה אומנותית",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:30",
+     "end": "10:20",
+     "startMin": 570,
+     "endMin": 620,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:40",
+     "end": "10:20",
+     "startMin": 580,
+     "endMin": 620,
+     "label": "שחייה אומנותית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:45",
+     "end": "10:10",
+     "startMin": 585,
+     "endMin": 610,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:00",
+     "end": "10:30",
+     "startMin": 600,
+     "endMin": 630,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:10",
+     "end": "11:00",
+     "startMin": 610,
+     "endMin": 660,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "שחייה אומנותית",
+     "groups": [
+      "יעל"
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:50",
+     "end": "11:40",
+     "startMin": 650,
+     "endMin": 700,
+     "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:00",
+     "end": "11:30",
+     "startMin": 660,
+     "endMin": 690,
+     "label": "שחייה אומנותית",
+     "groups": [
+      "מיה"
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "12:30",
+     "startMin": 735,
+     "endMin": 750,
+     "label": "ג'ימבורי",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "12:45",
+     "startMin": 750,
+     "endMin": 765,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:15",
+     "startMin": 750,
+     "endMin": 795,
+     "label": "משחקי שליחים",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:15",
+     "end": "13:30",
+     "startMin": 795,
+     "endMin": 810,
+     "label": "התארגנות סיום יום קצר + התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "איסוף יום קצר 13:30 ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:45",
+     "startMin": 870,
+     "endMin": 945,
+     "label": "הקרנת סרט ופופקורן",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "movie",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ג 4.8",
+   "dayLetter": "ג",
+   "date": "2026-08-04",
+   "dateLabel": "4.8",
+   "theme": "יום כדור-מים",
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "name": "יעל",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "name": "מיה",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "name": "גילבי",
+     "ages": "גילאי 9-10"
+    },
+    {
+     "name": "ריי",
+     "ages": "גילאי 10-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "startMin": 510,
+     "endMin": 525,
+     "label": "פתיחת יום בוקר טוב נוכחות ומשחק פתיחה",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:30",
+     "startMin": 525,
+     "endMin": 570,
+     "label": "חפש את המטמון",
+     "groups": [
+      "מיה"
+     ],
+     "category": "treasure",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:50",
+     "end": "09:40",
+     "startMin": 530,
+     "endMin": 580,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:00",
+     "end": "09:15",
+     "startMin": 540,
+     "endMin": 555,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:00",
+     "end": "09:40",
+     "startMin": 540,
+     "endMin": 580,
+     "label": "כדור מים",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:30",
+     "end": "10:20",
+     "startMin": 570,
+     "endMin": 620,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:40",
+     "end": "10:20",
+     "startMin": 580,
+     "endMin": 620,
+     "label": "כדור מים",
+     "groups": [
+      "ריי"
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:45",
+     "end": "10:10",
+     "startMin": 585,
+     "endMin": 610,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:10",
+     "end": "11:00",
+     "startMin": 610,
+     "endMin": 660,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "מנוחה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "rest",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "כדור מים",
+     "groups": [
+      "יעל"
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:50",
+     "end": "11:40",
+     "startMin": 650,
+     "endMin": 700,
+     "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:00",
+     "end": "11:30",
+     "startMin": 660,
+     "endMin": 690,
+     "label": "כדור מים",
+     "groups": [
+      "מיה"
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:00",
+     "end": "11:45",
+     "startMin": 660,
+     "endMin": 705,
+     "label": "חפש את המטמון",
+     "groups": [
+      "יעל"
+     ],
+     "category": "treasure",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "11:45",
+     "startMin": 660,
+     "endMin": 705,
+     "label": "חפש את המטמון",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "treasure",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "11:45",
+     "startMin": 690,
+     "endMin": 705,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:30",
+     "startMin": 705,
+     "endMin": 750,
+     "label": "חפש את המטמון",
+     "groups": [
+      "ריי"
+     ],
+     "category": "treasure",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "12:30",
+     "startMin": 735,
+     "endMin": 750,
+     "label": "ג'ימבורי",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "12:45",
+     "startMin": 750,
+     "endMin": 765,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:15",
+     "startMin": 750,
+     "endMin": 795,
+     "label": "משחקי שליחים",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:30",
+     "end": "13:15",
+     "startMin": 750,
+     "endMin": 795,
+     "label": "משחקי שליחים",
+     "groups": [
+      "מיה"
+     ],
+     "category": "games",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:45",
+     "end": "13:15",
+     "startMin": 765,
+     "endMin": 795,
+     "label": "ג'ימבורי",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:45",
+     "end": "13:15",
+     "startMin": 765,
+     "endMin": 795,
+     "label": "ג'ימבורי",
+     "groups": [
+      "ריי"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:15",
+     "end": "13:30",
+     "startMin": 795,
+     "endMin": 810,
+     "label": "התארגנות סיום יום קצר + התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "איסוף יום קצר 13:30 ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:45",
+     "startMin": 870,
+     "endMin": 945,
+     "label": "זמן חופשי בבריכה",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ד 5.8",
+   "dayLetter": "ד",
+   "date": "2026-08-05",
+   "dateLabel": "5.8",
+   "theme": "יום הגנה עצמית",
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "name": "יעל",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "name": "מיה",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "name": "גילבי",
+     "ages": "גילאי 9-10"
+    },
+    {
+     "name": "ריי",
+     "ages": "גילאי 10-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:50",
+     "startMin": 510,
+     "endMin": 530,
+     "label": "פתיחת יום בוקר טוב נוכחות ומשחק פתיחה",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:50",
+     "end": "09:30",
+     "startMin": 530,
+     "endMin": 570,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:20",
+     "end": "10:00",
+     "startMin": 560,
+     "endMin": 600,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:30",
+     "end": "09:50",
+     "startMin": 570,
+     "endMin": 590,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:50",
+     "end": "10:40",
+     "startMin": 590,
+     "endMin": 640,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:00",
+     "end": "10:30",
+     "startMin": 600,
+     "endMin": 630,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:20",
+     "startMin": 630,
+     "endMin": 680,
+     "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:45",
+     "end": "11:00",
+     "startMin": 645,
+     "endMin": 660,
+     "label": "התארגנות ומעבר לסטודיו",
+     "groups": [
+      "יעל"
+     ],
+     "category": "transition",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:00",
+     "startMin": 645,
+     "endMin": 660,
+     "label": "התארגנות ומעבר לסטודיו",
+     "groups": [
+      "מיה"
+     ],
+     "category": "transition",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "11:45",
+     "startMin": 660,
+     "endMin": 705,
+     "label": "הגנה עצמית",
+     "groups": [
+      "יעל"
+     ],
+     "category": "defense",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:00",
+     "end": "11:46",
+     "startMin": 660,
+     "endMin": 706,
+     "label": "הגנה עצמית",
+     "groups": [
+      "מיה"
+     ],
+     "category": "defense",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:30",
+     "end": "11:45",
+     "startMin": 690,
+     "endMin": 705,
+     "label": "התארגנות ומעבר לסטודיו",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "transition",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "11:45",
+     "startMin": 690,
+     "endMin": 705,
+     "label": "התארגנות ומעבר לסטודיו",
+     "groups": [
+      "ריי"
+     ],
+     "category": "transition",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:30",
+     "startMin": 705,
+     "endMin": 750,
+     "label": "הגנה עצמית",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "defense",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:45",
+     "end": "12:30",
+     "startMin": 705,
+     "endMin": 750,
+     "label": "הגנה עצמית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "defense",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "12:30",
+     "startMin": 735,
+     "endMin": 750,
+     "label": "ג'ימבורי",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "12:45",
+     "startMin": 750,
+     "endMin": 765,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:15",
+     "startMin": 750,
+     "endMin": 795,
+     "label": "משחקי שליחים",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:15",
+     "end": "13:30",
+     "startMin": 795,
+     "endMin": 810,
+     "label": "התארגנות סיום יום קצר + התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "איסוף יום קצר 13:30 ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:45",
+     "startMin": 870,
+     "endMin": 945,
+     "label": "הקרנת סרט ופופקורן",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "movie",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:15",
+     "startMin": 945,
+     "endMin": 975,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ה 6.8",
+   "dayLetter": "ה",
+   "date": "2026-08-06",
+   "dateLabel": "6.8",
+   "theme": null,
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "name": "יעל",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "name": "מיה",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "name": "גילבי",
+     "ages": "גילאי 9-10"
+    },
+    {
+     "name": "ריי",
+     "ages": "גילאי 10-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "startMin": 510,
+     "endMin": 525,
+     "label": "פתיחת יום בוקר טוב נוכחות ומשחק פתיחה",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:30",
+     "startMin": 525,
+     "endMin": 570,
+     "label": "שיחה עם גל חמרני",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "guest",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:50",
+     "end": "10:40",
+     "startMin": 590,
+     "endMin": 640,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:00",
+     "end": "10:30",
+     "startMin": 600,
+     "endMin": 630,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:20",
+     "startMin": 630,
+     "endMin": 680,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:45",
+     "end": "11:10",
+     "startMin": 645,
+     "endMin": 670,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:15",
+     "startMin": 645,
+     "endMin": 675,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:15",
+     "startMin": 645,
+     "endMin": 675,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:10",
+     "end": "12:00",
+     "startMin": 670,
+     "endMin": 720,
+     "label": "התארגנות ושיעור שחייה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:15",
+     "end": "11:30",
+     "startMin": 675,
+     "endMin": 690,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:15",
+     "end": "12:00",
+     "startMin": 675,
+     "endMin": 720,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "12:00",
+     "startMin": 690,
+     "endMin": 720,
+     "label": "זמן משחק בבריכה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:50",
+     "end": "12:40",
+     "startMin": 710,
+     "endMin": 760,
+     "label": "התארגנות ושיעור שחייה בבריכה הפנימית",
+     "groups": [
+      "ריי"
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי"
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "12:30",
+     "startMin": 735,
+     "endMin": 750,
+     "label": "ג'ימבורי",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:15",
+     "startMin": 750,
+     "endMin": 795,
+     "label": "משחקי שליחים",
+     "groups": [
+      "יעל"
+     ],
+     "category": "games",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:15",
+     "end": "13:30",
+     "startMin": 795,
+     "endMin": 810,
+     "label": "התארגנות סיום יום קצר + התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "איסוף יום קצר 13:30 ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:45",
+     "startMin": 870,
+     "endMin": 945,
+     "label": "זמן חופשי בבריכה",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "יעל",
+      "מיה",
+      "גילבי",
+      "ריי"
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  }
+ ],
+ "messages": [],
+ "generatedAt": "2026-07-31T21:00:41.655Z"
+}

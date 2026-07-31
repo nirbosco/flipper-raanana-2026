@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ניהול — קייטנת פליפר רעננה</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .admin-wrap { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; }
+    .admin-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .admin-head .logo { width: 52px; height: 52px; }
+    .admin-head h1 { font-size: 26px; color: var(--brand-2); }
+    .admin-sub { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 22px; }
+    .panel { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-soft); padding: 18px; margin-bottom: 16px; }
+    .panel h2 { font-size: 18px; margin-bottom: 8px; }
+    .panel p, .panel li { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+    .panel ol, .panel ul { padding-inline-start: 20px; margin-top: 6px; }
+    .panel code { background: #eef6fa; border-radius: 6px; padding: 1px 7px; font-size: 13px; color: var(--brand-2); direction: ltr; display: inline-block; }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+      color: #fff; font-weight: 600; font-size: 14.5px;
+      padding: 10px 20px; border-radius: 12px; text-decoration: none;
+    }
+    .btn.ghost { background: #fff; color: var(--brand-2); border: 1.5px solid var(--line); }
+    table.preview { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+    table.preview th, table.preview td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: right; vertical-align: top; }
+    table.preview th { color: var(--ink-soft); font-weight: 600; background: #f6fbfd; }
+    .warn-item { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; background: #fef9ec; border: 1px solid #fde68a; margin-bottom: 8px; font-size: 13.5px; }
+    .ok-item { background: #ecfdf3; border-color: #bbf7d0; }
+    .msg-example { background: #f6fbfd; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-top: 8px; overflow-x: auto; }
+    #status { font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <div class="admin-head">
+      <div class="logo" id="admin-logo"></div>
+      <h1>ניהול הקייטנה</h1>
+    </div>
+    <p class="admin-sub">מאחורי הקלעים של הלו"ז. כל שינוי בגיליון מגיע להורים בתוך דקות, בלי לגעת בקוד.</p>
+
+    <div class="panel">
+      <h2>איך מעדכנים את הלו"ז?</h2>
+      <p>הגיליון בגוגל הוא מקור האמת היחיד. עורכים אותו, והאפליקציה מתעדכנת לבד (רענון אוטומטי כל 5 דקות ובכל פתיחה של האפליקציה).</p>
+      <ul>
+        <li>כל יום יושב בטאב משלו: <code>יום א 2.8</code> עד <code>יום ה 6.8</code>. טאב חדש באותו פורמט ייקלט אוטומטית.</li>
+        <li>פעילות שחלה על כמה קבוצות או כמה שעות: פשוט מזגו את התאים (Merge). האפליקציה מבינה מיזוגים.</li>
+        <li>שעה מדויקת בתוך הטקסט, למשל <code>(9:50-10:40)</code>, גוברת על שורת הגריד. ככה הלו"ז יושב בול על הזמנים.</li>
+        <li>שורת הכותרת של כל טאב קובעת את נושא היום (מה שאחרי המקף).</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn" id="sheet-link" target="_blank" rel="noopener">פתיחת הגיליון לעריכה</a>
+        <a class="btn ghost" href="index.html">חזרה לאפליקציה</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>הודעות להורים (הפס הרץ)</h2>
+      <p>מוסיפים לגיליון טאב חדש בשם <code>הודעות</code> עם ארבע עמודות. כל שורה היא הודעה אחת בפס הרץ שלמעלה:</p>
+      <div class="msg-example">
+        <table class="preview">
+          <tr><th>עמודה A — תאריך</th><th>עמודה B — קבוצה</th><th>עמודה C — ההודעה</th><th>עמודה D — סוג</th></tr>
+          <tr><td>2.8</td><td></td><td>היום להביא נעליים סגורות!</td><td>חשוב</td></tr>
+          <tr><td></td><td></td><td>לא לשכוח: קרם הגנה, כובע ובקבוק מים</td><td></td></tr>
+          <tr><td>4.8</td><td>ריי</td><td>קבוצת ריי מסיימת היום ב-13:30</td><td>חשוב</td></tr>
+        </table>
+      </div>
+      <ul>
+        <li>תאריך ריק = ההודעה מוצגת כל יום. קבוצה ריקה = לכל ההורים.</li>
+        <li><code>חשוב</code> בעמודה D צובע את ההודעה ומבליט אותה.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>בדיקת תקינות הלו"ז</h2>
+      <p>המערכת מושכת עכשיו את הגיליון החי ובודקת שהכול נקלט כמו שצריך:</p>
+      <div id="status">טוען את הגיליון…</div>
+      <div id="checks"></div>
+      <div id="preview"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadModel, israelNow } from './js/data.js';
+    import { LOGO, categoryMeta } from './js/icons.js';
+    import { SHEET_URL } from './js/parser.js';
+
+    document.getElementById('admin-logo').innerHTML = LOGO();
+    document.getElementById('sheet-link').href = SHEET_URL;
+
+    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    function toMin(t) { const [h, m] = t.split(':').map(Number); return h * 60 + m; }
+
+    function validate(model) {
+      const warns = [];
+      for (const day of model.days) {
+        if (!day.theme) warns.push(`בטאב "${day.tab}" כותרת היום לא תואמת את שם הטאב, אז נושא היום לא מוצג. שווה לעדכן את שורת הכותרת.`);
+        for (const g of model.groups.map((x) => x.name)) {
+          const mine = day.activities
+            .filter((a) => a.groups.includes(g))
+            .sort((a, b) => a.startMin - b.startMin);
+          for (let i = 0; i < mine.length - 1; i++) {
+            const gap = mine[i + 1].startMin - mine[i].endMin;
+            if (gap >= 30) warns.push(`יום ${day.dayLetter} · ${g}: חור של ${gap} דקות בין "${mine[i].label}" (עד ${mine[i].end}) ל"${mine[i + 1].label}" (${mine[i + 1].start}).`);
+            if (gap < 0) warns.push(`יום ${day.dayLetter} · ${g}: חפיפה בין "${mine[i].label}" ל"${mine[i + 1].label}".`);
+          }
+          const weird = mine.find((a) => a.endMin - a.startMin > 90 && a.category !== 'closing');
+          if (weird) warns.push(`יום ${day.dayLetter} · ${g}: "${weird.label}" נמשך ${weird.endMin - weird.startMin} דקות (${weird.start}–${weird.end}). לוודא שזה מכוון.`);
+          const odd = mine.find((a) => a.endMin % 5 !== 0 || a.startMin % 5 !== 0);
+          if (odd) warns.push(`יום ${day.dayLetter} · ${g}: שעה חריגה ב"${odd.label}" (${odd.start}–${odd.end}) — כנראה טעות הקלדה בגיליון.`);
+        }
+      }
+      if (!model.messages.length) warns.push('אין עדיין טאב "הודעות" בגיליון. הפס הרץ מציג בינתיים הודעות ברירת מחדל.');
+      return warns;
+    }
+
+    loadModel((model) => {
+      if (model.source === 'cache') return; // מחכים לגרסה החיה
+      const status = document.getElementById('status');
+      status.textContent = model.source === 'live'
+        ? `הגיליון נמשך בהצלחה. ${model.days.length} ימים, ${model.days.reduce((n, d) => n + d.activities.length, 0)} פעילויות, ${model.messages.length} הודעות.`
+        : 'לא הצלחנו למשוך את הגיליון החי, מציגים נתונים שמורים.';
+
+      const warns = validate(model);
+      document.getElementById('checks').innerHTML = warns.length
+        ? warns.map((w) => `<div class="warn-item">⚠️ ${esc(w)}</div>`).join('')
+        : '<div class="warn-item ok-item">✅ הכול נקלט נקי. אין הערות.</div>';
+
+      const dupes = new Set();
+      document.getElementById('preview').innerHTML = model.days.map((day) => `
+        <details ${day.date === israelNow().date ? 'open' : ''}>
+          <summary style="cursor:pointer;font-weight:600;padding:8px 0">יום ${day.dayLetter} · ${day.dateLabel}${day.theme ? ' · ' + esc(day.theme) : ''}</summary>
+          <table class="preview">
+            <tr><th>שעות</th><th>פעילות</th><th>קבוצות</th><th>סוג</th></tr>
+            ${day.activities.map((a) => `
+              <tr>
+                <td dir="ltr" style="text-align:end">${a.start}–${a.end}</td>
+                <td>${esc(a.label)}</td>
+                <td>${a.groups.length === model.groups.length ? 'כולם' : esc(a.groups.join(', '))}</td>
+                <td>${esc(categoryMeta(a.category).label)}</td>
+              </tr>`).join('')}
+          </table>
+        </details>`).join('');
+    });
+  </script>
+</body>
+</html>
