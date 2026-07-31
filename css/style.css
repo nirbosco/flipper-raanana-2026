@@ -123,12 +123,31 @@ svg { display: block; }
 .topbar .titles { flex: 1; min-width: 0; }
 .topbar h1 { font-size: 18px; line-height: 1.15; font-weight: 700; }
 .topbar .day-theme { font-size: 12.5px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.topbar .settings-btn {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: rgba(255, 255, 255, .14);
-  display: grid; place-items: center;
+.topbar .groups-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 10px;
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .22);
+  font-size: 12.5px; font-weight: 600; color: #fff;
+  flex: 0 0 auto;
 }
-.topbar .settings-btn svg { width: 21px; height: 21px; }
+.groups-btn .g-avatars { display: flex; }
+.groups-btn .g-mini {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1.5px solid #fff;
+  margin-inline-start: -7px;
+}
+.groups-btn .g-mini:first-child { margin-inline-start: 0; }
+.groups-btn .g-mini svg { width: 15px; height: 15px; }
+.groups-btn .g-plus {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1.5px dashed rgba(255, 255, 255, .7);
+  margin-inline-start: -7px;
+  font-size: 14px; font-weight: 700; color: #fff;
+  background: rgba(255, 255, 255, .12);
+}
 
 /* ============ טיקר הודעות ============ */
 

@@ -314,9 +314,21 @@ function closeSettings() {
 
 /* ---------- הרכבה ---------- */
 
+function renderGroupsButton() {
+  const groups = selectedGroups();
+  const minis = groups.slice(0, 3).map((g) => {
+    const gs = groupStyle(groupIdx(g));
+    return `<span class="g-mini" style="background:${gs.soft};color:${gs.color}">${groupAvatar(groupIdx(g))}</span>`;
+  }).join('');
+  $('settings-btn').innerHTML = `
+    <span class="g-avatars">${minis}<span class="g-plus">+</span></span>
+    <span>קבוצות</span>`;
+}
+
 function renderApp() {
   const day = state.model.days[state.dayIndex];
   $('top-logo').innerHTML = LOGO('top-mark');
+  renderGroupsButton();
   $('top-theme').textContent = day.theme
     ? `יום ${DAY_NAMES[day.dayLetter] || day.dayLetter} ${day.dateLabel} · ${day.theme}`
     : `יום ${DAY_NAMES[day.dayLetter] || day.dayLetter} ${day.dateLabel}`;
