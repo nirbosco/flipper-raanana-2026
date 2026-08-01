@@ -20,6 +20,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    // מבטיח שההורים תמיד על החיבור המאובטח, גם מקישורים ישנים של http
+    if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+      location.replace(location.href.replace('http://', 'https://'));
+    }
+  </script>
 </head>
 <body>
 
