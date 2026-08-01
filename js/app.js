@@ -6,7 +6,7 @@ import {
 } from './icons.js';
 
 const GROUPS_KEY = 'flipper.groups.v2';
-const PICKUP_SHORT = 13 * 60 + 30;
+const PICKUP_SHORT = 13 * 60;
 const PICKUP_LONG = 16 * 60;
 
 const $ = (id) => document.getElementById(id);
@@ -94,7 +94,7 @@ function bindGate() {
 
 const DEFAULT_MESSAGES = [
   { text: 'בוקר טוב! לא לשכוח: קרם הגנה, כובע ובקבוק מים', level: 'important' },
-  { text: 'איסוף יום קצר בשעה 13:30, איסוף יום ארוך בשעה 16:00', level: 'normal' },
+  { text: 'איסוף יום קצר בשעה 13:00, איסוף יום ארוך בשעה 16:00', level: 'normal' },
 ];
 
 function activeMessages() {
@@ -259,7 +259,7 @@ function renderTimeline() {
         </div>
         <div class="tl-canvas" style="height:${height}px">
           ${lines}
-          <div class="pickup-line" style="top:${y(PICKUP_SHORT)}px"><span>איסוף יום קצר 13:30</span></div>
+          <div class="pickup-line" style="top:${y(PICKUP_SHORT)}px"><span>איסוף יום קצר 13:00</span></div>
           <div class="pickup-line" style="top:${y(PICKUP_LONG)}px"><span>איסוף יום ארוך 16:00</span></div>
           ${cards}
           ${showNowLine ? `<div class="now-line" style="top:${y(minutes)}px"></div>` : ''}
