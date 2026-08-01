@@ -36,7 +36,8 @@ const selectedGroups = () =>
 
 const groupIdx = (g) => state.model.groups.findIndex((x) => x.col === g.col);
 
-const groupSub = (g) => [g.instructor, g.ages].filter(Boolean).join(' · ');
+// מציגים רק את שם המדריך.ה, בלי גילאים
+const groupSub = (g) => g.instructor || '';
 
 /* ---------- שער כניסה ---------- */
 
