@@ -156,6 +156,33 @@ export async function adminOp(adminCode, op, msg = {}, msgId = null) {
   return body;
 }
 
+/* ---------- עמוד המדריכים ---------- */
+
+/** מושך את הגיליון החי ומחזיר את כל הלשוניות כפי שהן (לרשימות חניכים וצוות). */
+export async function loadRawSheets() {
+  const res = await fetch(`${EXPORT_URL}&t=${Date.now()}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`sheet fetch failed: ${res.status}`);
+  const files = await unzipXlsx(await res.arrayBuffer());
+  const { loadWorkbook } = await import('./parser.js');
+  return loadWorkbook(files);
+}
+
+/** פעולת צוות (נוכחות/הערות) — הקוד נבדק בצד השרת. */
+export async function staffOp(staffCode, op, payload = {}) {
+  if (!hasSupabase()) throw new Error('אין חיבור: חסר מפתח ב-js/config.js');
+  const res = await fetch(`${SUPABASE.url}/rest/v1/rpc/flipper_staff_op`, {
+    method: 'POST',
+    headers: { apikey: SUPABASE.key, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ staff_code: staffCode, op, payload }),
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok) {
+    const hint = body && body.message ? body.message : `HTTP ${res.status}`;
+    throw new Error(hint.includes('unauthorized') ? 'קוד צוות שגוי' : hint);
+  }
+  return body;
+}
+
 /* ---------- זמן ישראל ---------- */
 
 export function israelNow() {

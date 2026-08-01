@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>צוות — קייטנת פליפר רעננה</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0d3577">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/staff.css">
+  <script>
+    if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+      location.replace(location.href.replace('http://', 'https://'));
+    }
+  </script>
+</head>
+<body class="staff-body">
+
+  <!-- כניסת צוות -->
+  <div id="staff-gate" hidden>
+    <div class="sg-card">
+      <div class="sg-logo" id="sg-logo"></div>
+      <h1>אזור הצוות</h1>
+      <p class="sg-sub">קייטנת פליפר רעננה · הכניסה למדריכים.ות בלבד</p>
+      <input type="password" id="sg-code" placeholder="קוד צוות" autocomplete="off" inputmode="text">
+      <button class="sg-btn" id="sg-enter">כניסה</button>
+      <p class="sg-err" id="sg-err"></p>
+    </div>
+  </div>
+
+  <!-- בחירת מדריך.ה -->
+  <div id="staff-who" hidden>
+    <div class="sg-card wide">
+      <h1>מי במשמרת?</h1>
+      <p class="sg-sub">בחרו את עצמכם, הבחירה נשמרת במכשיר</p>
+      <div class="who-grid" id="who-grid"></div>
+    </div>
+  </div>
+
+  <!-- העמוד הראשי -->
+  <div id="staff-app" hidden>
+    <header class="staff-topbar">
+      <div class="logo" id="staff-logo"></div>
+      <div class="titles">
+        <h1 id="staff-title">צוות פליפר</h1>
+        <div class="staff-sub" id="staff-sub"></div>
+      </div>
+      <button class="who-switch" id="who-switch">החלפה</button>
+    </header>
+
+    <nav class="days staff-days" id="staff-days"></nav>
+
+    <main class="staff-main">
+      <section class="att-summary" id="att-summary"></section>
+      <section id="roster"></section>
+
+      <section class="panel notes-panel">
+        <h2>הערות היום</h2>
+        <div id="day-notes"></div>
+        <div class="note-form">
+          <input type="text" id="note-input" maxlength="1000" placeholder="הערה חדשה: אירוע, תזכורת, משהו לסוף היום…">
+          <button class="btn small" id="note-add">הוספה</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <details>
+          <summary class="contacts-summary">📞 טלפונים של כל הצוות</summary>
+          <div id="staff-contacts"></div>
+        </details>
+      </section>
+
+      <div class="sync-note" id="staff-sync"></div>
+    </main>
+  </div>
+
+  <script type="module" src="js/staff.js"></script>
+</body>
+</html>
