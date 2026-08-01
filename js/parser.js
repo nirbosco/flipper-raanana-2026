@@ -318,6 +318,12 @@ function parseMessages(sheet) {
 
 /* ---------- עמוד המדריכים: רשימות חניכים וצוות ---------- */
 
+/* מציגים למדריכים רק הערות אלרגיה/רגישות; שאר ההערות בגיליון נשארות מחוץ לתצוגה */
+function allergyOnly(note) {
+  const clean = (note || '').trim();
+  return /אלרג|רגיש/.test(clean) ? clean : '';
+}
+
 function normalizePhone(raw) {
   if (!raw) return '';
   let s = String(raw).trim();
@@ -403,7 +409,7 @@ export function parseStaffData(sheets) {
           age: (cells.get(r + ',' + (m['גיל'] ?? -1)) || '').trim(),
           phone: normalizePhone(cells.get(r + ',' + (m['טלפון'] ?? -1)) || ''),
           parent: (cells.get(r + ',' + (m['שם הורה'] ?? m['הורה'] ?? 8)) || '').trim(),
-          health: (cells.get(r + ',' + (m['הצהרת בריאות / הערה'] ?? m['הערה'] ?? -1)) || '').trim(),
+          health: allergyOnly(cells.get(r + ',' + (m['הצהרת בריאות / הערה'] ?? m['הערה'] ?? -1)) || ''),
           stay: (cells.get(r + ',' + (m['משך שהות'] ?? -1)) || '').trim(),
         };
         rosterByName.set(name, child);
