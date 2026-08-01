@@ -72,7 +72,7 @@ $('who-grid').addEventListener('click', (e) => {
   enterApp();
 });
 
-$('who-switch').addEventListener('click', () => { show('who'); });
+$('who-switch').addEventListener('click', () => { renderWho(); show('who'); });
 
 /* ---------- ימי הקייטנה ---------- */
 
