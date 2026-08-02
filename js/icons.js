@@ -179,7 +179,32 @@ const GROUP_STYLES = [
   { color: '#3d6fbe', soft: '#e5edf9' },
 ];
 
+/* אווטארים לפי שם הקבוצה */
+const NAMED_AVATARS = [
+  /* דולפין קופץ */
+  [/דולפינ/, S(`
+    <path d="M4.6 13.6c1.2-4.4 4.6-7.2 8.4-7.2 1-1.3 2.5-2 4-1.9-.5.8-.7 1.7-.6 2.6 1.3.8 2.3 2 2.8 3.4-1-.3-1.9-.2-2.8.1-1.9 2.4-4.2 4.3-7.1 4.3-.8 1.1-2 1.9-3.4 2.1.4-.8.5-1.7.3-2.6-.6-.2-1.1-.5-1.6-.8z" fill="currentColor" fill-opacity=".3" stroke-width="2.2"/>
+    <circle cx="14.6" cy="9.4" r=".65" fill="currentColor" stroke="none"/>
+    ${WAVE}`)],
+  /* כוכב ים מחייך */
+  [/כוכב/, AVATARS[0]],
+  /* מדליה — הכי טובים */
+  [/הכי טוב|אלופ|מדליה|נבחרת/, S(`
+    <path d="M8.6 3.4h6.8l2.2 4.2-5.6 6-5.6-6z" fill="currentColor" fill-opacity=".2" stroke-width="2"/>
+    <circle cx="12" cy="15.6" r="4.6" fill="currentColor" fill-opacity=".3" stroke-width="2.2"/>
+    <path d="M12 13.2l.9 1.8 2 .3-1.4 1.4.3 2-1.8-1-1.8 1 .3-2-1.4-1.4 2-.3z" fill="currentColor" stroke="none" fill-opacity=".9"/>`)],
+  /* כוכב נוצץ — המדהימים */
+  [/מדהימ|קסם|נוצצ|כוכבים/, S(`
+    <path d="M11 4.2l1.9 4.4 4.4 1.9-4.4 1.9-1.9 4.4-1.9-4.4-4.4-1.9 4.4-1.9z" fill="currentColor" fill-opacity=".3" stroke-width="2.2"/>
+    <path d="M18.6 13.6l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z" fill="currentColor" fill-opacity=".85" stroke-width="1.2"/>
+    <path d="M17.8 3.8l.5 1.2 1.2.5-1.2.5-.5 1.2-.5-1.2-1.2-.5 1.2-.5z" fill="currentColor" fill-opacity=".55" stroke="none"/>
+    ${WAVE}`)],
+];
+
 export const groupStyle = (index) => GROUP_STYLES[((index % GROUP_STYLES.length) + GROUP_STYLES.length) % GROUP_STYLES.length];
-export const groupAvatar = (index) => AVATARS[((index % AVATARS.length) + AVATARS.length) % AVATARS.length];
+export const groupAvatar = (index, name = '') => {
+  for (const [re, svg] of NAMED_AVATARS) if (re.test(name)) return svg;
+  return AVATARS[((index % AVATARS.length) + AVATARS.length) % AVATARS.length];
+};
 export const categoryMeta = (cat) => CATEGORY_META[cat] || CATEGORY_META.activity;
 export const icon = (cat) => ICONS[cat] || ICONS.activity;

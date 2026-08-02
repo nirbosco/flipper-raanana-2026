@@ -351,11 +351,17 @@ export function parseStaffData(sheets) {
   const groups = [];
   for (const s of sheets) {
     if (s.name.includes('יום') || s.name.includes('נוכחות') || s.name.includes('הודעות')) continue;
-    let instructorFull = null, groupLabel = null, headerRow = null, nameCol = null, groupCol = null;
+    let instructorFull = null, groupName = '', groupLabel = null, headerRow = null, nameCol = null, groupCol = null;
     for (const [key, text] of s.cells) {
       const [r, c] = key.split(',').map(Number);
-      const m = text.match(/^מדריכ[הת.ה]*\s*:\s*(.+)$/);
-      if (m) instructorFull = m[1].trim();
+      if (r === 0) {
+        // "שם הקבוצה: מדריכים" או "מדריכה: שם"
+        const m = text.match(/^(.+?)\s*:\s*(.+)$/);
+        if (m) {
+          if (/^מדריכ/.test(m[1])) instructorFull = m[2].trim();
+          else { groupName = m[1].trim(); instructorFull = m[2].trim(); }
+        }
+      }
       if (text === 'שם') { headerRow = r; nameCol = c; }
     }
     if (headerRow == null) continue;
@@ -372,7 +378,7 @@ export function parseStaffData(sheets) {
       children.push(name);
     }
     if (children.length) {
-      groups.push({ tab: s.name, instructorFull: instructorFull || s.name, groupLabel, childNames: children });
+      groups.push({ tab: s.name, groupName, instructorFull: instructorFull || s.name, groupLabel, childNames: children });
     }
   }
 
@@ -454,6 +460,40 @@ export function parseStaffData(sheets) {
 
 /* ---------- entry point ---------- */
 
+/* שורת הכותרת של טאב מדריכים: "שם הקבוצה: מדריך, מדריך" */
+export function parseGroupTitles(sheets) {
+  const titles = [];
+  for (const s of sheets) {
+    if (s.name.includes('יום') || s.name.includes('נוכחות') || s.name.includes('הודעות')) continue;
+    const r0 = (s.cells.get('0,1') || s.cells.get('0,0') || '').trim();
+    const m = r0.match(/^(.+?)\s*:\s*(.+)$/);
+    if (m) titles.push({ tab: s.name, groupName: m[1].trim(), instructors: m[2].trim() });
+    else titles.push({ tab: s.name, groupName: '', instructors: s.name });
+  }
+  return titles;
+}
+
+/* השוואת צוותים בין כותרת עמודה לטאב מדריכים: "מיה, דניאל ובר" ≈ "מיה דניאל ובר" */
+function staffTokens(s) {
+  return new Set(
+    s.replace(/[,]/g, ' ').split(/\s+/)
+      .map((t) => (t.length > 2 && t.startsWith('ו') ? t.slice(1) : t))
+      .filter((t) => t.length > 1),
+  );
+}
+
+function matchTitle(headerName, titles) {
+  const h = staffTokens(headerName);
+  let best = null, bestScore = 0;
+  for (const t of titles) {
+    const tt = staffTokens(t.instructors + ' ' + t.tab);
+    let score = 0;
+    for (const tok of h) if (tt.has(tok)) score++;
+    if (score > bestScore) { bestScore = score; best = t; }
+  }
+  return bestScore >= 1 ? best : null;
+}
+
 export function buildModel(files) {
   const sheets = loadWorkbook(files);
   const days = [];
@@ -464,6 +504,19 @@ export function buildModel(files) {
     if (d) days.push(d);
   }
   days.sort((a, b) => a.date.localeCompare(b.date));
+
+  // העשרה: שם הקבוצה מהטאב של המדריכים הופך לשם הראשי, והמדריכים יורדים לשורת המשנה
+  const titles = parseGroupTitles(sheets);
+  for (const day of days) {
+    for (const g of day.groups) {
+      const t = matchTitle(g.instructor ? `${g.name} ${g.instructor}` : g.name, titles);
+      if (t && t.groupName) {
+        g.instructor = t.instructors;
+        g.name = t.groupName;
+      }
+    }
+  }
+
   return {
     sheetId: SHEET_ID,
     groups: days.length ? days[0].groups : [],

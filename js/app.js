@@ -46,7 +46,7 @@ function groupCardHTML(g, idx, selected) {
   return `
     <button class="group-card ${selected ? 'selected' : ''}" data-col="${g.col}" style="--gc:${gs.color}">
       <span class="tick">✓</span>
-      <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(idx)}</span>
+      <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(idx, g.name)}</span>
       <span class="g-name">${esc(g.name)}</span>
       <span class="g-ages">${esc(groupSub(g)) || '&nbsp;'}</span>
     </button>`;
@@ -189,7 +189,7 @@ function renderNowBanner() {
     }
     return `
       <div class="nb-row">
-        <span class="nb-icon" style="background:${gs.soft};color:${gs.color}">${groupAvatar(groupIdx(group))}</span>
+        <span class="nb-icon" style="background:${gs.soft};color:${gs.color}">${groupAvatar(groupIdx(group), group.name)}</span>
         <div class="nb-info">
           <div class="nb-group" style="color:${gs.color}">${esc(group.name)}</div>
           <div class="nb-label">היום הסתיים, נתראה מחר!</div>
@@ -252,7 +252,7 @@ function renderTimeline() {
     return `
       <div class="tl-col">
         <div class="tl-col-head" style="--gcol:${gs.color};--gsoft:${gs.soft}">
-          ${groupAvatar(groupIdx(g))}
+          ${groupAvatar(groupIdx(g), g.name)}
           <span class="head-txt">
             <span class="head-name">${esc(g.name)}</span>
             ${groupSub(g) ? `<span class="head-sub">${esc(groupSub(g))}</span>` : ''}
@@ -319,7 +319,7 @@ function renderGroupsButton() {
   const groups = selectedGroups();
   const minis = groups.slice(0, 3).map((g) => {
     const gs = groupStyle(groupIdx(g));
-    return `<span class="g-mini" style="background:${gs.soft};color:${gs.color}">${groupAvatar(groupIdx(g))}</span>`;
+    return `<span class="g-mini" style="background:${gs.soft};color:${gs.color}">${groupAvatar(groupIdx(g), g.name)}</span>`;
   }).join('');
   $('settings-btn').innerHTML = `
     <span class="g-avatars">${minis}<span class="g-plus">+</span></span>

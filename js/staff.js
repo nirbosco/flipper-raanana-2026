@@ -71,9 +71,9 @@ function renderWho() {
     const gs = groupStyle(i);
     return `
       <button class="who-card" data-key="${esc(groupKey(g))}">
-        <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(i)}</span>
-        <span class="w-name">${esc(g.tab)}</span>
-        <span class="w-sub">${esc(g.groupLabel || g.instructorFull || '')}</span>
+        <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(i, g.groupName || "")}</span>
+        <span class="w-name">${esc(g.groupName || g.tab)}</span>
+        <span class="w-sub">${esc(g.instructorFull || g.tab)}</span>
       </button>`;
   }).join('');
 }
@@ -181,8 +181,8 @@ async function loadDashboard() {
       return `
         <div class="dash-card" style="--gcol:${gs.color};--gsoft:${gs.soft}">
           <div class="dash-head">
-            <span class="avatar">${groupAvatar(i)}</span>
-            <span class="dash-name">${esc(g.tab)}</span>
+            <span class="avatar">${groupAvatar(i, g.groupName || "")}</span>
+            <span class="dash-name">${esc(g.groupName || g.tab)}</span>
             <span class="dash-cnt">${present.length}/${g.children.length}</span>
           </div>
           ${absent.length ? `<div class="dash-line miss">✗ חסרים: ${esc(absent.map((c) => c.name).join(', '))}</div>` : ''}
@@ -334,8 +334,8 @@ async function enterApp() {
     $('staff-sub').textContent = 'מבט מנהלת';
   } else {
     const g = group();
-    $('staff-title').textContent = `${g?.tab || ''} · ${g?.groupLabel || 'הקבוצה שלי'}`;
-    $('staff-sub').textContent = g?.instructorFull && g.instructorFull !== g?.tab ? g.instructorFull : 'אזור הצוות';
+    $('staff-title').textContent = g?.groupName || g?.tab || '';
+    $('staff-sub').textContent = g?.instructorFull && g.instructorFull !== g?.groupName ? g.instructorFull : 'אזור הצוות';
   }
   renderDays();
   renderContacts();
