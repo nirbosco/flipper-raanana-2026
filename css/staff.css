@@ -157,6 +157,34 @@
 }
 .contact-row a { margin-inline-start: auto; color: var(--brand); font-weight: 600; text-decoration: none; direction: ltr; }
 
+/* ---- לוח המנהלת ---- */
+
+.who-card.manager { border-color: var(--brand); background: #f6f9ff; grid-column: 1 / -1; }
+.who-card.manager .avatar { font-size: 22px; }
+
+.dash-mode .notes-panel { display: none; }
+
+.dash-grid { display: grid; gap: 10px; }
+.dash-card {
+  background: #fff; border-radius: 12px; box-shadow: var(--shadow-soft);
+  border-inline-start: 4px solid var(--gcol);
+  padding: 12px 14px;
+}
+.dash-head { display: flex; align-items: center; gap: 9px; }
+.dash-head .avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gsoft); color: var(--gcol);
+  display: grid; place-items: center; flex: 0 0 auto;
+}
+.dash-head .avatar svg { width: 22px; height: 22px; }
+.dash-name { font-weight: 700; font-size: 15.5px; }
+.dash-cnt { margin-inline-start: auto; font-weight: 700; font-size: 17px; color: var(--gcol); }
+.dash-line { font-size: 13px; color: var(--ink-soft); margin-top: 6px; line-height: 1.45; }
+.dash-line.miss { color: #c0453c; font-weight: 500; }
+.dash-line.soft { color: #93a5b8; }
+
+@media (min-width: 640px) { .dash-grid { grid-template-columns: 1fr 1fr; } }
+
 .staff-note-inline {
   width: 100%; margin-top: 6px; font: inherit; font-size: 13px;
   border: 1.5px solid var(--line); border-radius: 8px; padding: 7px 10px;

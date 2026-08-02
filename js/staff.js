@@ -5,21 +5,28 @@ import { parseStaffData } from './parser.js';
 import { LOGO, groupAvatar, groupStyle } from './icons.js';
 
 const CODE_KEY = 'flipper.staff.code';
-const WHO_KEY = 'flipper.staff.who';
+const WHO_KEY = 'flipper.staff.who.v2';
+const ALL = '__all__';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const state = {
   code: localStorage.getItem(CODE_KEY) || '',
-  who: localStorage.getItem(WHO_KEY) || '',   // שם הלשונית של המדריך.ה
+  who: localStorage.getItem(WHO_KEY) || '',   // מפתח קבוצה יציב (קבוצה-1..4) או __all__ למנהלת
+  role: 'staff',
   data: null,        // parseStaffData
   days: [],          // ימי הקייטנה מהמודל הראשי
   dayIndex: 0,
   att: new Map(),    // child -> {present, note}
   notes: [],
-  saving: new Set(),
 };
+
+/* מפתח יציב לקבוצה: מספר הקבוצה מהגיליון, לא שם הלשונית (שמשתנה) */
+function groupKey(g) {
+  const m = (g.groupLabel || '').match(/\d+/);
+  return m ? `קבוצה-${m[0]}` : g.tab;
+}
 
 /* ---------- מסכים ---------- */
 
@@ -32,8 +39,9 @@ function show(screen) {
 /* ---------- כניסה ---------- */
 
 async function tryEnter(code) {
-  await staffOp(code, 'ping');
+  const res = await staffOp(code, 'ping');
   state.code = code;
+  state.role = res.role || 'staff';
   localStorage.setItem(CODE_KEY, code);
 }
 
@@ -53,10 +61,16 @@ $('sg-code').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('sg-e
 /* ---------- בחירת מדריך.ה ---------- */
 
 function renderWho() {
-  $('who-grid').innerHTML = state.data.groups.map((g, i) => {
+  const managerCard = state.role === 'manager' ? `
+    <button class="who-card manager" data-key="${ALL}">
+      <span class="avatar" style="background:#e8edf8;color:var(--brand-deep)">👑</span>
+      <span class="w-name">כל הקבוצות</span>
+      <span class="w-sub">מבט מנהלת</span>
+    </button>` : '';
+  $('who-grid').innerHTML = managerCard + state.data.groups.map((g, i) => {
     const gs = groupStyle(i);
     return `
-      <button class="who-card" data-tab="${esc(g.tab)}">
+      <button class="who-card" data-key="${esc(groupKey(g))}">
         <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(i)}</span>
         <span class="w-name">${esc(g.tab)}</span>
         <span class="w-sub">${esc(g.groupLabel || g.instructorFull || '')}</span>
@@ -67,7 +81,7 @@ function renderWho() {
 $('who-grid').addEventListener('click', (e) => {
   const card = e.target.closest('.who-card');
   if (!card) return;
-  state.who = card.dataset.tab;
+  state.who = card.dataset.key;
   localStorage.setItem(WHO_KEY, state.who);
   enterApp();
 });
@@ -102,10 +116,11 @@ $('staff-days').addEventListener('click', async (e) => {
 
 /* ---------- נוכחות ---------- */
 
-const group = () => state.data.groups.find((g) => g.tab === state.who);
+const group = () => state.data.groups.find((g) => groupKey(g) === state.who);
 const dayLabel = () => state.days[state.dayIndex]?.dateLabel || '';
 
 async function loadDay() {
+  if (state.who === ALL) return loadDashboard();
   state.att = new Map();
   state.notes = [];
   renderRoster();
@@ -118,6 +133,59 @@ async function loadDay() {
   }
   renderRoster();
   renderNotes();
+}
+
+/* ---------- לוח המנהלת: כל הקבוצות ---------- */
+
+async function loadDashboard() {
+  $('att-summary').innerHTML = 'טוען את כל הקבוצות…';
+  $('roster').innerHTML = '';
+  try {
+    const res = await staffOp(state.code, 'get_all', { day: dayLabel() });
+    const attByGroup = new Map();
+    for (const a of res.attendance) {
+      if (!attByGroup.has(a.instructor)) attByGroup.set(a.instructor, new Map());
+      attByGroup.get(a.instructor).set(a.child, a);
+    }
+    const notesByGroup = new Map();
+    for (const n of res.notes) {
+      if (!notesByGroup.has(n.instructor)) notesByGroup.set(n.instructor, []);
+      notesByGroup.get(n.instructor).push(n);
+    }
+
+    let totalPresent = 0, totalKids = 0;
+    const cards = state.data.groups.map((g, i) => {
+      const key = groupKey(g);
+      const att = attByGroup.get(key) || new Map();
+      const gs = groupStyle(i);
+      const present = g.children.filter((c) => att.get(c.name)?.present === true);
+      const absent = g.children.filter((c) => att.get(c.name)?.present === false);
+      const unmarked = g.children.length - present.length - absent.length;
+      const childNotes = g.children
+        .filter((c) => att.get(c.name)?.note)
+        .map((c) => `${c.name}: ${att.get(c.name).note}`);
+      const notes = (notesByGroup.get(key) || []).map((n) => n.note);
+      totalPresent += present.length;
+      totalKids += g.children.length;
+      return `
+        <div class="dash-card" style="--gcol:${gs.color};--gsoft:${gs.soft}">
+          <div class="dash-head">
+            <span class="avatar">${groupAvatar(i)}</span>
+            <span class="dash-name">${esc(g.tab)}</span>
+            <span class="dash-cnt">${present.length}/${g.children.length}</span>
+          </div>
+          ${absent.length ? `<div class="dash-line miss">✗ חסרים: ${esc(absent.map((c) => c.name).join(', '))}</div>` : ''}
+          ${unmarked ? `<div class="dash-line soft">עוד לא סומנו: ${unmarked}</div>` : ''}
+          ${childNotes.map((n) => `<div class="dash-line">📝 ${esc(n)}</div>`).join('')}
+          ${notes.map((n) => `<div class="dash-line">🗒️ ${esc(n)}</div>`).join('')}
+        </div>`;
+    }).join('');
+
+    $('att-summary').innerHTML = `<span class="cnt">${totalPresent}/${totalKids}</span> נוכחים בכל הקייטנה`;
+    $('roster').innerHTML = `<div class="dash-grid">${cards}</div>`;
+  } catch (err) {
+    $('att-summary').innerHTML = 'שגיאה: ' + esc(err.message);
+  }
 }
 
 function renderSummary() {
@@ -247,15 +315,23 @@ function renderContacts() {
 
 async function enterApp() {
   show('app');
-  const g = group();
-  const gi = state.data.groups.indexOf(g);
   $('staff-logo').innerHTML = LOGO();
-  $('staff-title').textContent = `${state.who} · ${g?.groupLabel || 'הקבוצה שלי'}`;
-  $('staff-sub').textContent = g?.instructorFull && g.instructorFull !== state.who ? g.instructorFull : 'אזור הצוות';
+  const isAll = state.who === ALL;
+  document.body.classList.toggle('dash-mode', isAll);
+  if (isAll) {
+    $('staff-title').textContent = 'כל הקבוצות';
+    $('staff-sub').textContent = 'מבט מנהלת';
+  } else {
+    const g = group();
+    $('staff-title').textContent = `${g?.tab || ''} · ${g?.groupLabel || 'הקבוצה שלי'}`;
+    $('staff-sub').textContent = g?.instructorFull && g.instructorFull !== g?.tab ? g.instructorFull : 'אזור הצוות';
+  }
   renderDays();
   renderContacts();
   await loadDay();
-  $('staff-sync').textContent = `${group()?.children.length || 0} חניכים ברשימה · הנתונים חיים מהגיליון`;
+  $('staff-sync').textContent = isAll
+    ? 'הנתונים חיים מהגיליון ומסימוני המדריכים'
+    : `${group()?.children.length || 0} חניכים ברשימה · הנתונים חיים מהגיליון`;
 }
 
 async function afterAuth() {
@@ -276,13 +352,21 @@ async function afterAuth() {
   state.days = dayModel.days;
   state.dayIndex = todayIndex();
 
-  if (state.who && state.data.groups.some((g) => g.tab === state.who)) {
+  const validWho = state.who === ALL
+    ? state.role === 'manager'
+    : state.data.groups.some((g) => groupKey(g) === state.who);
+  if (state.who && validWho) {
     enterApp();
   } else {
     renderWho();
     show('who');
   }
 }
+
+/* לוח המנהלת מתרענן לבד כל דקה */
+setInterval(() => {
+  if (!$('staff-app').hidden && state.who === ALL) loadDashboard();
+}, 60 * 1000);
 
 /* ---------- יציאה לדרך ---------- */
 
