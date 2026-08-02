@@ -88,6 +88,17 @@ $('who-grid').addEventListener('click', (e) => {
 
 $('who-switch').addEventListener('click', () => { renderWho(); show('who'); });
 
+$('logout').addEventListener('click', () => {
+  localStorage.removeItem(CODE_KEY);
+  localStorage.removeItem(WHO_KEY);
+  state.code = '';
+  state.who = '';
+  state.role = 'staff';
+  $('sg-code').value = '';
+  $('sg-err').textContent = '';
+  show('gate');
+});
+
 /* ---------- ימי הקייטנה ---------- */
 
 function todayIndex() {
@@ -367,6 +378,17 @@ async function afterAuth() {
 setInterval(() => {
   if (!$('staff-app').hidden && state.who === ALL) loadDashboard();
 }, 60 * 1000);
+
+/* חזרה לאפליקציה: רענון הרשימות מהגיליון — קולט חניכים שנוספו או הוסרו */
+document.addEventListener('visibilitychange', async () => {
+  if (document.visibilityState !== 'visible' || $('staff-app').hidden || !state.code) return;
+  try {
+    const sheets = await loadRawSheets();
+    state.data = parseStaffData(sheets);
+    await loadDay();
+    renderContacts();
+  } catch { /* נשארים עם מה שיש */ }
+});
 
 /* ---------- יציאה לדרך ---------- */
 
