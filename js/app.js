@@ -147,7 +147,11 @@ function nowInfo() {
   if (minutes < 8 * 60 || minutes > PICKUP_LONG + 30) return null;
   const rows = selectedGroups().map((g) => {
     const acts = day.activities.filter((a) => a.cols.includes(g.col));
-    const current = acts.find((a) => a.startMin <= minutes && minutes < a.endMin);
+    const currents = acts.filter((a) => a.startMin <= minutes && minutes < a.endMin);
+    // שתי אופציות מקבילות מוצגות ביחד בבאנר
+    const current = currents.length
+      ? { ...currents[0], label: currents.map((c) => c.label).join(' / ') }
+      : undefined;
     const next = acts.find((a) => a.startMin > minutes);
     return { group: g, current, next };
   });
@@ -233,14 +237,39 @@ function renderTimeline() {
   const cols = groups.map((g) => {
     const gs = groupStyle(groupIdx(g));
     const mine = day.activities.filter((a) => a.cols.includes(g.col));
-    const cards = mine.map((a) => {
+
+    // פעילויות מקבילות (שתי אופציות באותה שעה) מקבלות מסלולים זו לצד זו
+    const items = mine.map((a) => ({ a, lane: 0, of: 1 }))
+      .sort((x, y2) => x.a.startMin - y2.a.startMin || x.a.endMin - y2.a.endMin);
+    const assignLanes = (cluster) => {
+      const laneEnd = [];
+      for (const it of cluster) {
+        let l = laneEnd.findIndex((e) => e <= it.a.startMin);
+        if (l === -1) { l = laneEnd.length; laneEnd.push(0); }
+        laneEnd[l] = it.a.endMin;
+        it.lane = l;
+      }
+      for (const it of cluster) it.of = laneEnd.length;
+    };
+    let cluster = [], clusterEnd = -1;
+    for (const it of items) {
+      if (cluster.length && it.a.startMin >= clusterEnd) { assignLanes(cluster); cluster = []; }
+      cluster.push(it);
+      clusterEnd = Math.max(clusterEnd, it.a.endMin);
+    }
+    if (cluster.length) assignLanes(cluster);
+
+    const cards = items.map(({ a, lane, of }) => {
       const meta = categoryMeta(a.category);
       const h = (a.endMin - a.startMin) * pxPerMin;
-      const compact = h < 46;
+      const compact = h < 46 || of > 1;
       const isNow = isToday && a.startMin <= minutes && minutes < a.endMin;
+      const laneStyle = of > 1
+        ? `inset-inline-start:calc(${(lane * 100) / of}% + 2px);inset-inline-end:auto;width:calc(${100 / of}% - 5px);`
+        : '';
       return `
-        <div class="act ${compact ? 'compact' : ''} ${isNow ? 'now-active' : ''}"
-             style="top:${y(a.startMin)}px;height:${Math.max(h - 4, 26)}px;--col:${meta.color};--soft:${meta.soft}">
+        <div class="act ${compact ? 'compact' : ''} ${of > 1 ? 'lane' : ''} ${isNow ? 'now-active' : ''}"
+             style="top:${y(a.startMin)}px;height:${Math.max(h - 4, 26)}px;--col:${meta.color};--soft:${meta.soft};${laneStyle}">
           ${isNow ? '<span class="now-tag">עכשיו</span>' : ''}
           <span class="a-icon">${icon(a.category)}</span>
           <span class="a-body">

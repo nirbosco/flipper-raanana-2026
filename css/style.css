@@ -313,6 +313,9 @@ svg { display: block; }
 .act.compact .a-icon svg { width: 14px; height: 14px; }
 .act.compact .a-label { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .act.compact .a-time { font-size: 10px; }
+.act.lane { padding-inline: 6px; }
+.act.lane .a-label { white-space: normal; font-size: 11.5px; line-height: 1.2; }
+.act.lane .a-icon { display: none; }
 
 .act.now-active {
   box-shadow: 0 0 0 2px var(--col), 0 8px 20px color-mix(in srgb, var(--col) 32%, transparent);
