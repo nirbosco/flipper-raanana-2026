@@ -379,9 +379,14 @@ setInterval(() => {
   if (!$('staff-app').hidden && state.who === ALL) loadDashboard();
 }, 60 * 1000);
 
+/* עמוד שפתוח מעל שעה נטען מחדש בחזרה אליו — מבטיח קוד עדכני אחרי פריסות */
+const LOADED_AT = Date.now();
+
 /* חזרה לאפליקציה: רענון הרשימות מהגיליון — קולט חניכים שנוספו או הוסרו */
 document.addEventListener('visibilitychange', async () => {
-  if (document.visibilityState !== 'visible' || $('staff-app').hidden || !state.code) return;
+  if (document.visibilityState !== 'visible') return;
+  if (Date.now() - LOADED_AT > 60 * 60 * 1000) { location.reload(); return; }
+  if ($('staff-app').hidden || !state.code) return;
   try {
     const sheets = await loadRawSheets();
     state.data = parseStaffData(sheets);

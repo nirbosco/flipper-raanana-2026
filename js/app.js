@@ -448,6 +448,14 @@ document.addEventListener('touchend', (e) => {
   }
 }, { passive: true });
 
+/* עמוד שפתוח מעל 3 שעות נטען מחדש בחזרה אליו — מבטיח קוד עדכני אחרי פריסות */
+const LOADED_AT = Date.now();
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && Date.now() - LOADED_AT > 3 * 60 * 60 * 1000) {
+    location.reload();
+  }
+});
+
 /* עדכון "עכשיו" כל חצי דקה */
 setInterval(() => {
   if (!state.model || $('app').hidden) return;
