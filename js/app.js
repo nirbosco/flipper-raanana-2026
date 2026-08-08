@@ -1,11 +1,13 @@
 /* app.js — הלוגיקה של אפליקציית הלו"ז */
 
 import { loadModel, startAutoRefresh, israelNow, fetchTickerMessages } from './data.js';
+import { CYCLES, activeCycle } from './config.js';
 import {
   icon, categoryMeta, groupAvatar, groupStyle, LOGO, CATEGORY_META,
 } from './icons.js';
 
-const GROUPS_KEY = 'flipper.groups.v2';
+const CYCLE = activeCycle(israelNow().date);
+const GROUPS_KEY = `flipper.groups.v3.c${CYCLE.id}`;
 const PICKUP_SHORT = 13 * 60;
 const PICKUP_LONG = 16 * 60;
 
@@ -368,6 +370,15 @@ function renderApp() {
   renderTimeline();
   renderLegend();
   renderSyncNote();
+  renderCycleBar();
+}
+
+function renderCycleBar() {
+  const bar = $('cycle-bar');
+  if (!bar || CYCLES.length < 2) return;
+  const links = CYCLES.filter((c) => c.id !== CYCLE.id)
+    .map((c) => `<a href="?cycle=${c.id}">${esc(c.label)}</a>`).join(' · ');
+  bar.innerHTML = `${esc(CYCLE.label)}${links ? ' · לצפייה ב' + links : ''}`;
 }
 
 function renderSyncNote() {
@@ -465,7 +476,7 @@ setInterval(() => {
 
 /* ---------- יציאה לדרך ---------- */
 
-loadModel(onModel);
-startAutoRefresh(onModel);
+loadModel(onModel, CYCLE);
+startAutoRefresh(onModel, CYCLE);
 refreshTicker();
 setInterval(refreshTicker, 3 * 60 * 1000);

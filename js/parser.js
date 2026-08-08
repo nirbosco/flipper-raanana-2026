@@ -4,9 +4,8 @@
  * קלט: קבצי ה-XML מתוך ה-xlsx (אחרי unzip). פלט: מודל הנתונים של האפליקציה.
  */
 
-export const SHEET_ID = '1soicEw_7X2vz8ju3w3yOKLGMW0bmz6VznIb7MUGSpXI';
-export const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
-export const EXPORT_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=xlsx`;
+export const sheetUrl = (id) => `https://docs.google.com/spreadsheets/d/${id}/edit`;
+export const exportUrl = (id) => `https://docs.google.com/spreadsheets/d/${id}/export?format=xlsx`;
 export const CAMP_YEAR = 2026;
 
 const DAY_TAB_RE = /יום\s+([אבגדהוש])\s+(\d{1,2})\.(\d{1,2})/;
@@ -339,48 +338,100 @@ function normalizePhone(raw) {
   return s;
 }
 
+const GROUP_LABEL_RE = /^קבוצה\s*\d/;
+
 /**
- * לשוניות המדריכים ("יעל", "מיה"...) + לשונית "נוכחות חניכים וצוות".
- * מחזיר: { groups: [{tab, instructorFull, groupLabel, children:[...]}], staff: [...] }
- * הרוסטר המלא (טלפון + שם הורה) מגיע מלשונית הנוכחות; השיוך לקבוצה מהלשוניות האישיות.
+ * לשונית רשימה של צוות אחד. תומכת בשני הפורמטים:
+ *   מחזור 1 — כותרת "שם הקבוצה: מדריכים" למעלה ושורת כותרות (קבוצה | שם | גיל …)
+ *   מחזור 2 — בלי כותרות בכלל, הנתונים מתחילים ישר, כולל טלפון ושם הורה
+ * העוגן בשני המקרים הוא עמודת "קבוצה N", והעמודות נמדדות ביחס אליה.
+ */
+function parseRosterTab(s) {
+  const cells = s.cells;
+  const at = (r, c) => (c == null || c < 0 ? '' : (cells.get(r + ',' + c) || '').trim());
+  const rows = [...new Set([...cells.keys()].map((k) => parseInt(k, 10)))].sort((a, b) => a - b);
+  if (!rows.length) return null;
+
+  // כותרת עליונה אופציונלית: שורה עם תא בודד בצורת "שם הקבוצה: מדריכים"
+  let instructorFull = null, groupName = '', titleRow = null;
+  for (const r of rows.slice(0, 2)) {
+    const filled = [];
+    for (let c = 0; c < 12; c++) if (at(r, c)) filled.push(at(r, c));
+    if (filled.length === 1 && filled[0].includes(':') && !GROUP_LABEL_RE.test(filled[0])) {
+      const m = filled[0].match(/^(.+?)\s*:\s*(.+)$/);
+      if (m) {
+        if (/^מדריכ/.test(m[1])) instructorFull = m[2].trim();
+        else { groupName = m[1].trim(); instructorFull = m[2].trim(); }
+        titleRow = r;
+      }
+      break;
+    }
+  }
+
+  // שורת כותרות אופציונלית
+  let headerRow = null;
+  const map = {};
+  for (const r of rows) {
+    for (let c = 0; c < 14; c++) if (at(r, c) === 'שם') { headerRow = r; break; }
+    if (headerRow != null) break;
+  }
+  if (headerRow != null) for (let c = 0; c < 14; c++) { const t = at(headerRow, c); if (t) map[t] = c; }
+
+  // עמודת הקבוצה: מהכותרת, אחרת לפי התוכן
+  let groupCol = map['קבוצה'];
+  if (groupCol == null) {
+    outer: for (const r of rows) {
+      for (let c = 0; c < 6; c++) if (GROUP_LABEL_RE.test(at(r, c))) { groupCol = c; break outer; }
+    }
+  }
+  if (groupCol == null) return null;
+
+  // עמודות: הכותרת גוברת, אחרת היסט קבוע מעמודת הקבוצה (הפורמט של מחזור 2)
+  const col = (title, offset) => (map[title] != null ? map[title] : groupCol + offset);
+  const nameCol = col('שם', 1);
+  const ageCol = col('גיל', 2);
+  const stayCol = col('משך שהות', 4);
+  const noteCol = map['הצהרת בריאות / הערה'] ?? map['הערה'] ?? groupCol + 7;
+  const phoneCol = col('טלפון', 8);
+  const parentCol = map['שם הורה'] ?? map['הורה'] ?? groupCol + 9;
+
+  const children = [];
+  let groupLabel = null;
+  for (const r of rows) {
+    if (r === titleRow || (headerRow != null && r <= headerRow)) continue;
+    const name = at(r, nameCol);
+    // שורת סיכום בתחתית הלשונית מכילה מספר בלבד — לא חניך
+    if (!name || name === 'שם' || /^\d+(\.\d+)?$/.test(name)) continue;
+    const label = at(r, groupCol);
+    if (!groupLabel && GROUP_LABEL_RE.test(label)) groupLabel = label;
+    children.push({
+      name,
+      group: label,
+      age: at(r, ageCol),
+      phone: normalizePhone(at(r, phoneCol)),
+      parent: at(r, parentCol),
+      health: allergyOnly(at(r, noteCol)),
+      stay: at(r, stayCol),
+    });
+  }
+  if (!children.length) return null;
+  return { tab: s.name, groupName, instructorFull: instructorFull || s.name, groupLabel, children };
+}
+
+/**
+ * לשוניות הצוות + לשונית "נוכחות חניכים וצוות".
+ * מחזיר: { groups: [{tab, groupName, instructorFull, groupLabel, children:[...]}], staff: [...] }
  */
 export function parseStaffData(sheets) {
   const rosterSheet = sheets.find((s) => s.name.includes('נוכחות'));
 
-  // לשוניות מדריכים: שורת "מדריכה: X" למעלה + עמודת "קבוצה"
   const groups = [];
   for (const s of sheets) {
     if (s.name.includes('יום') || s.name.includes('נוכחות') || s.name.includes('הודעות')) continue;
-    let instructorFull = null, groupName = '', groupLabel = null, headerRow = null, nameCol = null, groupCol = null;
-    for (const [key, text] of s.cells) {
-      const [r, c] = key.split(',').map(Number);
-      if (r === 0) {
-        // "שם הקבוצה: מדריכים" או "מדריכה: שם"
-        const m = text.match(/^(.+?)\s*:\s*(.+)$/);
-        if (m) {
-          if (/^מדריכ/.test(m[1])) instructorFull = m[2].trim();
-          else { groupName = m[1].trim(); instructorFull = m[2].trim(); }
-        }
-      }
-      if (text === 'שם') { headerRow = r; nameCol = c; }
-    }
-    if (headerRow == null) continue;
-    for (let c = 0; c < 15; c++) {
-      if ((s.cells.get(headerRow + ',' + c) || '').trim() === 'קבוצה') { groupCol = c; break; }
-    }
-    const children = [];
-    const rows = [...new Set([...s.cells.keys()].map((k) => parseInt(k, 10)))].sort((a, b) => a - b);
-    for (const r of rows) {
-      if (r <= headerRow) continue;
-      const name = (s.cells.get(r + ',' + nameCol) || '').trim();
-      if (!name) continue;
-      if (!groupLabel && groupCol != null) groupLabel = (s.cells.get(r + ',' + groupCol) || '').trim() || null;
-      children.push(name);
-    }
-    if (children.length) {
-      groups.push({ tab: s.name, groupName, instructorFull: instructorFull || s.name, groupLabel, childNames: children });
-    }
+    const g = parseRosterTab(s);
+    if (g) groups.push(g);
   }
+  groups.sort((a, b) => (a.groupLabel || '').localeCompare(b.groupLabel || '', 'he', { numeric: true }));
 
   // לשונית הנוכחות: פרטים מלאים לכל חניך + טבלת צוות
   const rosterByName = new Map();
@@ -437,22 +488,23 @@ export function parseStaffData(sheets) {
     }
   }
 
-  // איחוד: הלשונית האישית קובעת את הרשימה והסדר; פרטים מלאים מלשונית הנוכחות.
-  // חניך שמופיע בלשונית הנוכחות תחת הקבוצה אבל חסר בלשונית האישית מצטרף בסוף.
+  // השלמה: הלשונית של הצוות קובעת את הרשימה והסדר. אם לשונית הנוכחות
+  // מחזיקה פרטים נוספים (הפורמט של מחזור 1) — משלימים מהם את החסר בלבד.
   for (const g of groups) {
     const seen = new Set();
-    g.children = g.childNames.map((name) => {
-      seen.add(name);
-      return rosterByName.get(name) || {
-        name, group: g.groupLabel || '', age: '', phone: '', parent: '', health: '', stay: '',
-      };
-    });
+    for (const c of g.children) {
+      seen.add(c.name);
+      const extra = rosterByName.get(c.name);
+      if (!extra) continue;
+      for (const field of ['age', 'phone', 'parent', 'health', 'stay']) {
+        if (!c[field] && extra[field]) c[field] = extra[field];
+      }
+    }
     if (g.groupLabel) {
       for (const c of rosterByGroup.get(g.groupLabel) || []) {
         if (!seen.has(c.name)) g.children.push(c);
       }
     }
-    delete g.childNames;
   }
 
   return { groups, staff };
@@ -518,7 +570,6 @@ export function buildModel(files) {
   }
 
   return {
-    sheetId: SHEET_ID,
     groups: days.length ? days[0].groups : [],
     days, messages,
   };

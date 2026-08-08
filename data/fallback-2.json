@@ -1,0 +1,2471 @@
+{
+ "groups": [
+  {
+   "col": 1,
+   "name": "מיה ורומי",
+   "instructor": "",
+   "ages": "גילאי 6-7"
+  },
+  {
+   "col": 2,
+   "name": "יעל, עמית+ דניאל",
+   "instructor": "",
+   "ages": "גילאי 8-9"
+  },
+  {
+   "col": 3,
+   "name": "ריי , נטע ורוי",
+   "instructor": "",
+   "ages": "גילאי 7-9"
+  },
+  {
+   "col": 4,
+   "name": "גילבי, עומר",
+   "instructor": "",
+   "ages": "גילאי 9-11"
+  }
+ ],
+ "days": [
+  {
+   "tab": "יום א 9.8",
+   "dayLetter": "א",
+   "date": "2026-08-09",
+   "dateLabel": "9.8",
+   "theme": "יום פתיחה והיכרות",
+   "intro": "פותחים את המחזור: שיחת פתיחה, נהלים, סיור בבריכה ובמקלט וחלוקה לקבוצות.",
+   "groups": [
+    {
+     "col": 1,
+     "name": "מיה ורומי",
+     "instructor": "",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "col": 2,
+     "name": "יעל, עמית+ דניאל",
+     "instructor": "",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "col": 3,
+     "name": "ריי , נטע ורוי",
+     "instructor": "",
+     "ages": "גילאי 7-9"
+    },
+    {
+     "col": 4,
+     "name": "גילבי, עומר",
+     "instructor": "",
+     "ages": "גילאי 9-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "09:00",
+     "startMin": 510,
+     "endMin": 540,
+     "label": "פותחים את המחזור: שיחת פתיחה, נהלים, סיור בבריכה ובמקלט וחלוקה לקבוצות.",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:00",
+     "end": "09:30",
+     "startMin": 540,
+     "endMin": 570,
+     "label": "נהלים, סיור בבריכה ובמקלט וחלוקה לקבוצות",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "10:00",
+     "startMin": 570,
+     "endMin": 600,
+     "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "10:10",
+     "startMin": 570,
+     "endMin": 610,
+     "label": "שיעור שחייה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:30",
+     "end": "10:15",
+     "startMin": 570,
+     "endMin": 615,
+     "label": "קבוצתי: משחקי היכרות, שם לקבוצה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "10:30",
+     "startMin": 570,
+     "endMin": 630,
+     "label": "קבוצתי: משחקי היכרות, שם, המנון, קליפ ודגל",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:00",
+     "end": "10:10",
+     "startMin": 600,
+     "endMin": 610,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:10",
+     "end": "10:50",
+     "startMin": 610,
+     "endMin": 650,
+     "label": "שיעור שחייה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "10:50",
+     "startMin": 645,
+     "endMin": 650,
+     "label": "משחקי צלילות בבריכה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:50",
+     "end": "11:30",
+     "startMin": 650,
+     "endMin": 690,
+     "label": "שיעור שחייה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:00",
+     "end": "11:30",
+     "startMin": 660,
+     "endMin": 690,
+     "label": "משחקי צלילות בבריכה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "12:00",
+     "startMin": 660,
+     "endMin": 720,
+     "label": "משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:15",
+     "end": "12:00",
+     "startMin": 675,
+     "endMin": 720,
+     "label": "משחקי צלילות בבריכה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "12:10",
+     "startMin": 690,
+     "endMin": 730,
+     "label": "שיעור שחייה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "משחקי צלילות בבריכה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "המשך משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "המשך משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:45",
+     "end": "13:00",
+     "startMin": 765,
+     "endMin": 780,
+     "label": "סיום משחקי היכרות, המנון לקבוצה, קליפ ודגל",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:00",
+     "end": "13:15",
+     "startMin": 780,
+     "endMin": 795,
+     "label": "סיום יום קצר ב13:00 התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:15",
+     "end": "14:15",
+     "startMin": 795,
+     "endMin": 855,
+     "label": "ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:15",
+     "end": "15:00",
+     "startMin": 855,
+     "endMin": 900,
+     "label": "משחקי קופסא / יצירה במקלט",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      1,
+      2
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:15",
+     "end": "15:00",
+     "startMin": 855,
+     "endMin": 900,
+     "label": "זמן חופשי בג'ימבורי",
+     "groups": [
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      3,
+      4
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:00",
+     "end": "15:45",
+     "startMin": 900,
+     "endMin": 945,
+     "label": "זמן חופשי בג'ימבורי",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      1,
+      2
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:00",
+     "end": "15:45",
+     "startMin": 900,
+     "endMin": 945,
+     "label": "משחקי קופסא / יצירה במקלט",
+     "groups": [
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      3,
+      4
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ב 10.8",
+   "dayLetter": "ב",
+   "date": "2026-08-10",
+   "dateLabel": "10.8",
+   "theme": "יום כדורמים",
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "col": 1,
+     "name": "מיה ורומי",
+     "instructor": "",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "col": 2,
+     "name": "יעל, עמית+ דניאל",
+     "instructor": "",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "col": 3,
+     "name": "ריי , נטע ורוי",
+     "instructor": "",
+     "ages": "גילאי 7-9"
+    },
+    {
+     "col": 4,
+     "name": "גילבי, עומר",
+     "instructor": "",
+     "ages": "גילאי 9-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "startMin": 510,
+     "endMin": 525,
+     "label": "פתיחת יום, בוקר טוב, בדיקת נוכחות ומשחק פתיחה",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:15",
+     "startMin": 525,
+     "endMin": 555,
+     "label": "משימה קבוצתית",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:45",
+     "startMin": 525,
+     "endMin": 585,
+     "label": "שיעור שחייה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "swim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:45",
+     "startMin": 525,
+     "endMin": 585,
+     "label": "שליחים עם טבעות (שתי הקבוצות יחד)",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:45",
+     "startMin": 525,
+     "endMin": 585,
+     "label": "שליחים עם טבעות (שתי הקבוצות יחד)",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:15",
+     "end": "09:45",
+     "startMin": 555,
+     "endMin": 585,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:45",
+     "startMin": 585,
+     "endMin": 645,
+     "label": "שיעור שחייה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "swim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "10:45",
+     "startMin": 615,
+     "endMin": 645,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "11:00",
+     "startMin": 615,
+     "endMin": 660,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:45",
+     "startMin": 645,
+     "endMin": 705,
+     "label": "שיעור שחייה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "swim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "12:30",
+     "startMin": 645,
+     "endMin": 750,
+     "label": "יצירת קערה במקלט",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "12:00",
+     "startMin": 660,
+     "endMin": 720,
+     "label": "שליחים עם טבעות",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "13:00",
+     "startMin": 705,
+     "endMin": 780,
+     "label": "שיעור שחייה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "swim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "13:00",
+     "startMin": 720,
+     "endMin": 780,
+     "label": "מחניים/ שבויים",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "ג'ימבורי",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:00",
+     "startMin": 750,
+     "endMin": 780,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:00",
+     "end": "13:15",
+     "startMin": 780,
+     "endMin": 795,
+     "label": "סיום יום קצר 13:00 התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:15",
+     "end": "14:15",
+     "startMin": 795,
+     "endMin": 855,
+     "label": "ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:15",
+     "end": "15:45",
+     "startMin": 855,
+     "endMin": 945,
+     "label": "הקרנת סרט ופופקורן / זמן חופשי בבריכה עד 15:15",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ג 11.8",
+   "dayLetter": "ג",
+   "date": "2026-08-11",
+   "dateLabel": "11.8",
+   "theme": "יום כדור-מים",
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "col": 1,
+     "name": "מיה ורומי",
+     "instructor": "",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "col": 2,
+     "name": "יעל, עמית+ דניאל",
+     "instructor": "",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "col": 3,
+     "name": "ריי , נטע ורוי",
+     "instructor": "",
+     "ages": "גילאי 7-9"
+    },
+    {
+     "col": 4,
+     "name": "גילבי, עומר",
+     "instructor": "",
+     "ages": "גילאי 9-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "startMin": 510,
+     "endMin": 525,
+     "label": "פתיחת יום, בוקר טוב, בדיקת נוכחות ומשחק פתיחה",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:30",
+     "startMin": 525,
+     "endMin": 570,
+     "label": "חידון טריווית ספורט",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:30",
+     "startMin": 525,
+     "endMin": 570,
+     "label": "חידון טריווית ספורט",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:30",
+     "startMin": 525,
+     "endMin": 570,
+     "label": "חידון טריווית ספורט",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:50",
+     "end": "09:40",
+     "startMin": 530,
+     "endMin": 580,
+     "label": "שיעור שחייה+ כדורמים עם אסף רודוי שחקן נבחרת ישראל בכדור מים בתחנות",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:30",
+     "end": "09:40",
+     "startMin": 570,
+     "endMin": 580,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "09:45",
+     "startMin": 570,
+     "endMin": 585,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:30",
+     "end": "09:45",
+     "startMin": 570,
+     "endMin": 585,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:40",
+     "end": "10:30",
+     "startMin": 580,
+     "endMin": 630,
+     "label": "שיעור שחייה+ כדורמים עם אסף רודוי שחקן נבחרת ישראל בכדור מים בתחנות",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:45",
+     "end": "10:25",
+     "startMin": 585,
+     "endMin": 625,
+     "label": "בית שדה/ משחקי גיבוש",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:30",
+     "startMin": 585,
+     "endMin": 630,
+     "label": "בית שדה/ משחקי גיבוש",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:00",
+     "end": "10:15",
+     "startMin": 600,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "11:00",
+     "startMin": 615,
+     "endMin": 660,
+     "label": "בית שדה/ משחקי גיבוש",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:25",
+     "end": "11:05",
+     "startMin": 625,
+     "endMin": 665,
+     "label": "שיעור שחייה+ כדורמים עם אסף רודוי שחקן נבחרת ישראל בכדור מים בתחנות",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:00",
+     "startMin": 645,
+     "endMin": 660,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "11:15",
+     "startMin": 660,
+     "endMin": 675,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "11:45",
+     "startMin": 660,
+     "endMin": 705,
+     "label": "בית שדה/ משחקי גיבוש",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:05",
+     "end": "11:55",
+     "startMin": 665,
+     "endMin": 715,
+     "label": "שיעור שחייה+ כדורמים עם אסף רודוי שחקן נבחרת ישראל בכדור מים בתחנות",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "waterpolo",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:30",
+     "end": "11:45",
+     "startMin": 690,
+     "endMin": 705,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "13:00",
+     "startMin": 705,
+     "endMin": 780,
+     "label": "משחק כדורמים",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "13:00",
+     "startMin": 705,
+     "endMin": 780,
+     "label": "משחק כדורמים",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "13:15",
+     "startMin": 705,
+     "endMin": 795,
+     "label": "יצירה קערה מחימר",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:15",
+     "end": "12:30",
+     "startMin": 735,
+     "endMin": 750,
+     "label": "מים, קרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:00",
+     "startMin": 750,
+     "endMin": 780,
+     "label": "משחק כדורמים",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:00",
+     "end": "13:15",
+     "startMin": 780,
+     "endMin": 795,
+     "label": "סיום יום קצר 13:00 התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:15",
+     "end": "14:15",
+     "startMin": 795,
+     "endMin": 855,
+     "label": "ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:15",
+     "end": "15:45",
+     "startMin": 855,
+     "endMin": 945,
+     "label": "זמן חופשי בבריכה / משחקי קופסא בסטודיו/ ג'ימבורי",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ד 12.8",
+   "dayLetter": "ד",
+   "date": "2026-08-12",
+   "dateLabel": "12.8",
+   "theme": "יום שחייה אמנותית",
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "col": 1,
+     "name": "מיה ורומי",
+     "instructor": "",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "col": 2,
+     "name": "יעל, עמית+ דניאל",
+     "instructor": "",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "col": 3,
+     "name": "ריי , נטע ורוי",
+     "instructor": "",
+     "ages": "גילאי 7-9"
+    },
+    {
+     "col": 4,
+     "name": "גילבי, עומר",
+     "instructor": "",
+     "ages": "גילאי 9-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "startMin": 510,
+     "endMin": 525,
+     "label": "פתיחת יום, בוקר טוב, בדיקת נוכחות ומשחק פתיחה",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:20",
+     "startMin": 525,
+     "endMin": 560,
+     "label": "הישרדות+ משחקי גיבוש",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:00",
+     "end": "09:40",
+     "startMin": 540,
+     "endMin": 580,
+     "label": "שיעור שחייה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:00",
+     "end": "10:15",
+     "startMin": 540,
+     "endMin": 615,
+     "label": "הישרדות+ משחקי גיבוש",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:00",
+     "end": "10:30",
+     "startMin": 540,
+     "endMin": 630,
+     "label": "יצירת קערה במקלט",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:40",
+     "end": "10:20",
+     "startMin": 580,
+     "endMin": 620,
+     "label": "שיעור שחייה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:00",
+     "end": "10:45",
+     "startMin": 600,
+     "endMin": 645,
+     "label": "סדנת קליסטניקס עם מעין",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:15",
+     "end": "10:20",
+     "startMin": 615,
+     "endMin": 620,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:20",
+     "end": "11:00",
+     "startMin": 620,
+     "endMin": 660,
+     "label": "שיעור שחייה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:30",
+     "end": "10:45",
+     "startMin": 630,
+     "endMin": 645,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:30",
+     "end": "11:00",
+     "startMin": 630,
+     "endMin": 660,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:45",
+     "end": "11:30",
+     "startMin": 645,
+     "endMin": 690,
+     "label": "סדנת קליסטניקס עם מעין",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:00",
+     "end": "11:30",
+     "startMin": 660,
+     "endMin": 690,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:00",
+     "end": "11:40",
+     "startMin": 660,
+     "endMin": 700,
+     "label": "שיעור שחייה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "swim",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:15",
+     "end": "11:30",
+     "startMin": 675,
+     "endMin": 690,
+     "label": "החלפת בגדים לסדנה, הפסקת מים וקרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "12:00",
+     "startMin": 690,
+     "endMin": 720,
+     "label": "כדורמים בבריכה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:30",
+     "end": "12:15",
+     "startMin": 690,
+     "endMin": 735,
+     "label": "סדנת קליסטניקס עם מעין",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים וקרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים וקרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "13:00",
+     "startMin": 720,
+     "endMin": 780,
+     "label": "ג'ימבורי",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "13:00",
+     "startMin": 720,
+     "endMin": 780,
+     "label": "הישרדות",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "סדנת קליסטניקס עם מעין",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:30",
+     "end": "13:00",
+     "startMin": 750,
+     "endMin": 780,
+     "label": "משחק כדור קבוצתי",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:00",
+     "end": "13:15",
+     "startMin": 780,
+     "endMin": 795,
+     "label": "סיום יום קצר 13:00 התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "איסוף יום קצר 13:00 ארוחת צהריים יום ארוך בסטודיו",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:45",
+     "startMin": 870,
+     "endMin": 945,
+     "label": "הקרנת סרט ופופקורן/ ג'ימבורי",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "movie",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:15",
+     "startMin": 945,
+     "endMin": 975,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  },
+  {
+   "tab": "יום ה 13.8",
+   "dayLetter": "ה",
+   "date": "2026-08-13",
+   "dateLabel": "13.8",
+   "theme": null,
+   "intro": "פותחים את הבוקר עם בדיקת נוכחות,  סבב מה שלומכם, משחק פתיחת יום קליל וכייפי, הסבר לו\"ז של היום",
+   "groups": [
+    {
+     "col": 1,
+     "name": "מיה ורומי",
+     "instructor": "",
+     "ages": "גילאי 6-7"
+    },
+    {
+     "col": 2,
+     "name": "יעל, עמית+ דניאל",
+     "instructor": "",
+     "ages": "גילאי 8-9"
+    },
+    {
+     "col": 3,
+     "name": "ריי , נטע ורוי",
+     "instructor": "",
+     "ages": "גילאי 7-9"
+    },
+    {
+     "col": 4,
+     "name": "גילבי, עומר",
+     "instructor": "",
+     "ages": "גילאי 9-11"
+    }
+   ],
+   "activities": [
+    {
+     "start": "08:30",
+     "end": "08:40",
+     "startMin": 510,
+     "endMin": 520,
+     "label": "פתיחת יום, בוקר טוב, בדיקת נוכחות ומשחק פתיחה",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "opening",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:40",
+     "end": "09:40",
+     "startMin": 520,
+     "endMin": 580,
+     "label": "התארגנות ושיעור שחייה / שחייה אומנותית עם עדן בלכר שחיינית אמנותית אולימפית מטוקיו",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "08:45",
+     "end": "09:15",
+     "startMin": 525,
+     "endMin": 555,
+     "label": "משימה קבוצתית",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:15",
+     "startMin": 525,
+     "endMin": 555,
+     "label": "משחקי כדור ושליחים בסטודיו",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "activity",
+     "timeSource": "grid"
+    },
+    {
+     "start": "08:45",
+     "end": "09:45",
+     "startMin": 525,
+     "endMin": 585,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:15",
+     "end": "09:40",
+     "startMin": 555,
+     "endMin": 580,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:15",
+     "end": "09:45",
+     "startMin": 555,
+     "endMin": 585,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:40",
+     "end": "10:40",
+     "startMin": 580,
+     "endMin": 640,
+     "label": "התארגנות ושיעור שחייה / שחייה אומנותית עם עדן בלכר שחיינית אמנותית אולימפית מטוקיו",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:15",
+     "startMin": 585,
+     "endMin": 615,
+     "label": "ארוחת בוקר ושתיית מים + קרם הגנה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "09:45",
+     "end": "10:40",
+     "startMin": 585,
+     "endMin": 640,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:15",
+     "end": "11:00",
+     "startMin": 615,
+     "endMin": 660,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "10:40",
+     "end": "11:40",
+     "startMin": 640,
+     "endMin": 700,
+     "label": "התארגנות ושיעור שחייה / שחייה אומנותית עם עדן בלכר שחיינית אמנותית אולימפית מטוקיו",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "10:45",
+     "end": "11:45",
+     "startMin": 645,
+     "endMin": 705,
+     "label": "משחקי צלילות וכדורמים בבריכה",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "waterpolo",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:15",
+     "end": "13:00",
+     "startMin": 675,
+     "endMin": 780,
+     "label": "יצירת קערה במקלט ופעילות סיכום עין טובה",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:40",
+     "end": "12:40",
+     "startMin": 700,
+     "endMin": 760,
+     "label": "התארגנות ושיעור שחייה / שחייה אומנותית עם עדן בלכר שחיינית אמנותית אולימפית מטוקיו",
+     "groups": [
+      "ריי , נטע ורוי"
+     ],
+     "cols": [
+      3
+     ],
+     "category": "artistic",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "11:45",
+     "end": "12:00",
+     "startMin": 705,
+     "endMin": 720,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "11:45",
+     "end": "12:30",
+     "startMin": 705,
+     "endMin": 750,
+     "label": "פעילות עין טובה וסיכום המחזור בסטודיו",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:15",
+     "startMin": 720,
+     "endMin": 735,
+     "label": "הפסקת מים, פירות וקרם הגנה",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:00",
+     "end": "12:30",
+     "startMin": 720,
+     "endMin": 750,
+     "label": "פעילות עין טובה וסיכום המחזור במקלט",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "משחקי שליחים",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "games",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "12:15",
+     "end": "13:00",
+     "startMin": 735,
+     "endMin": 780,
+     "label": "פעילות עין טובה וסיכום המחזור בג'ימבורי",
+     "groups": [
+      "מיה ורומי"
+     ],
+     "cols": [
+      1
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:00",
+     "startMin": 750,
+     "endMin": 780,
+     "label": "משחקי קופסא/ מבוכים ודרקונים - סתיו",
+     "groups": [
+      "יעל, עמית+ דניאל"
+     ],
+     "cols": [
+      2
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "12:30",
+     "end": "13:00",
+     "startMin": 750,
+     "endMin": 780,
+     "label": "משחקי קופסא/ מבוכים ודרקונים - סתיו",
+     "groups": [
+      "גילבי, עומר"
+     ],
+     "cols": [
+      4
+     ],
+     "category": "games",
+     "timeSource": "grid"
+    },
+    {
+     "start": "13:00",
+     "end": "13:15",
+     "startMin": 780,
+     "endMin": 795,
+     "label": "סיום יום קצר 13:00 התארגנות לארוחת צהריים יום ארוך",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "explicit"
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "startMin": 810,
+     "endMin": 870,
+     "label": "ארוחת צהריים+ השלמה של פעילות עין טובה לקבוצות שלא סיימו",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "food",
+     "timeSource": "grid"
+    },
+    {
+     "start": "14:30",
+     "end": "15:45",
+     "startMin": 870,
+     "endMin": 945,
+     "label": "זמן חופשי בבריכה/ ג'ימבורי/ משחקי קופסא/ יצירה בחדר ציור",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "freeswim",
+     "timeSource": "grid"
+    },
+    {
+     "start": "15:45",
+     "end": "16:00",
+     "startMin": 945,
+     "endMin": 960,
+     "label": "התארגנות סוף יום ושיחת סיכום",
+     "groups": [
+      "מיה ורומי",
+      "יעל, עמית+ דניאל",
+      "ריי , נטע ורוי",
+      "גילבי, עומר"
+     ],
+     "cols": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "category": "closing",
+     "timeSource": "grid"
+    }
+   ]
+  }
+ ],
+ "messages": [],
+ "generatedAt": "2026-08-08T17:19:05.198Z",
+ "cycleId": 2
+}

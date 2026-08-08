@@ -2,10 +2,12 @@
 
 import { loadRawSheets, staffOp, israelNow } from './data.js';
 import { parseStaffData } from './parser.js';
+import { activeCycle, CYCLES } from './config.js';
 import { LOGO, groupAvatar, groupStyle } from './icons.js';
 
+const CYCLE = activeCycle(israelNow().date);
 const CODE_KEY = 'flipper.staff.code';
-const WHO_KEY = 'flipper.staff.who.v2';
+const WHO_KEY = `flipper.staff.who.v3.c${CYCLE.id}`;
 const ALL = '__all__';
 
 const $ = (id) => document.getElementById(id);
@@ -21,6 +23,12 @@ const state = {
   att: new Map(),    // child -> {present, note}
   notes: [],
 };
+
+/* תווית משנה: המדריכים כשיש שם קבוצה, אחרת תיאור הקבוצה מהגיליון */
+function groupSub(g) {
+  if (g.groupName && g.instructorFull) return g.instructorFull;
+  return g.groupLabel || g.instructorFull || '';
+}
 
 /* מפתח יציב לקבוצה: מספר הקבוצה מהגיליון, לא שם הלשונית (שמשתנה) */
 function groupKey(g) {
@@ -73,7 +81,7 @@ function renderWho() {
       <button class="who-card" data-key="${esc(groupKey(g))}">
         <span class="avatar" style="background:${gs.soft};color:${gs.color}">${groupAvatar(i, g.groupName || "")}</span>
         <span class="w-name">${esc(g.groupName || g.tab)}</span>
-        <span class="w-sub">${esc(g.instructorFull || g.tab)}</span>
+        <span class="w-sub">${esc(groupSub(g))}</span>
       </button>`;
   }).join('');
 }
@@ -331,11 +339,11 @@ async function enterApp() {
   document.body.classList.toggle('dash-mode', isAll);
   if (isAll) {
     $('staff-title').textContent = 'כל הקבוצות';
-    $('staff-sub').textContent = 'מבט מנהלת';
+    $('staff-sub').textContent = `מבט מנהלת · ${CYCLE.label}`;
   } else {
     const g = group();
     $('staff-title').textContent = g?.groupName || g?.tab || '';
-    $('staff-sub').textContent = g?.instructorFull && g.instructorFull !== g?.groupName ? g.instructorFull : 'אזור הצוות';
+    $('staff-sub').textContent = g ? `${groupSub(g)} · ${CYCLE.label}` : CYCLE.label;
   }
   renderDays();
   renderContacts();
@@ -347,7 +355,7 @@ async function enterApp() {
 
 async function afterAuth() {
   // טוען את הגיליון: רשימות + ימי השבוע
-  const sheets = await loadRawSheets();
+  const sheets = await loadRawSheets(CYCLE);
   state.data = parseStaffData(sheets);
   // ימי השבוע מתוך שמות הלשוניות
   const dayModel = { days: [] };
@@ -388,7 +396,7 @@ document.addEventListener('visibilitychange', async () => {
   if (Date.now() - LOADED_AT > 60 * 60 * 1000) { location.reload(); return; }
   if ($('staff-app').hidden || !state.code) return;
   try {
-    const sheets = await loadRawSheets();
+    const sheets = await loadRawSheets(CYCLE);
     state.data = parseStaffData(sheets);
     await loadDay();
     renderContacts();

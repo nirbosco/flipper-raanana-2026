@@ -115,7 +115,8 @@
       <h2>איך מעדכנים את הלו"ז?</h2>
       <p>הגיליון בגוגל הוא מקור האמת של הלו"ז. עורכים אותו, והאפליקציה מתעדכנת לבד (רענון אוטומטי כל 5 דקות ובכל פתיחה של האפליקציה).</p>
       <ul>
-        <li>כל יום יושב בטאב משלו: <code>יום א 2.8</code> עד <code>יום ה 6.8</code>. טאב חדש באותו פורמט ייקלט אוטומטית.</li>
+        <li>כל יום יושב בטאב משלו, למשל <code>יום א 9.8</code>. טאב חדש באותו פורמט ייקלט אוטומטית.</li>
+        <li>מחזור חדש = גיליון חדש. שולחים לניר את הקישור והוא מוסיף אותו למערכת; המחזור הקודם נשאר זמין כארכיון.</li>
         <li>שם קבוצה בשורת הכותרת אפשר לכתוב גם בפורמט <code>קבוצת אלמוגים - יעל - גילאי 6-7</code>, והאפליקציה תציג שם, מדריכה וגילאים.</li>
         <li>פעילות שחלה על כמה קבוצות או כמה שעות: פשוט מזגו את התאים (Merge). האפליקציה מבינה מיזוגים.</li>
         <li>שעה מדויקת בתוך הטקסט, למשל <code>(9:50-10:40)</code>, גוברת על שורת הגריד. ככה הלו"ז יושב בול על הזמנים.</li>
@@ -138,12 +139,14 @@
 
   <script type="module">
     import { loadModel, israelNow, adminOp, fetchTickerMessages } from './js/data.js';
-    import { hasSupabase } from './js/config.js';
+    import { hasSupabase, activeCycle } from './js/config.js';
     import { LOGO, categoryMeta } from './js/icons.js';
-    import { SHEET_URL } from './js/parser.js';
+    import { sheetUrl } from './js/parser.js';
 
     document.getElementById('admin-logo').innerHTML = LOGO();
-    document.getElementById('sheet-link').href = SHEET_URL;
+    const CYCLE = activeCycle(israelNow().date);
+    document.getElementById('sheet-link').href = sheetUrl(CYCLE.sheetId);
+    document.querySelector('.admin-sub').textContent += ` (${CYCLE.label})`;
 
     const $ = (id) => document.getElementById(id);
     const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -280,7 +283,7 @@
               </tr>`).join('')}
           </table>
         </details>`).join('');
-    });
+    }, CYCLE);
   </script>
 </body>
 </html>

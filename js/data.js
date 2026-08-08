@@ -2,9 +2,10 @@
  * data.js — שכבת הנתונים: משיכה חיה מגוגל שיטס (xlsx), פתיחת ה-zip בדפדפן,
  * ושרשרת גיבויים: רשת → מטמון מקומי → fallback.json הארוז באתר.
  */
-import { buildModel, EXPORT_URL } from './parser.js';
+import { buildModel, exportUrl } from './parser.js';
 
-const CACHE_KEY = 'flipper.model.v2'; // v2: קבוצות לפי עמודה + מדריכה
+// מטמון נפרד לכל מחזור
+const cacheKey = (cycle) => `flipper.model.v3.c${cycle.id}`;
 
 /* ---------- unzip בדפדפן: DataView + DecompressionStream ---------- */
 
@@ -49,34 +50,36 @@ async function unzipXlsx(buf) {
 
 /* ---------- שרשרת הטעינה ---------- */
 
-async function fetchLive() {
-  const res = await fetch(`${EXPORT_URL}&t=${Date.now()}`, { cache: 'no-store' });
+async function fetchLive(cycle) {
+  const res = await fetch(`${exportUrl(cycle.sheetId)}&t=${Date.now()}`, { cache: 'no-store' });
   if (!res.ok) throw new Error(`sheet fetch failed: ${res.status}`);
   const files = await unzipXlsx(await res.arrayBuffer());
   const model = buildModel(files);
   if (!model.days.length) throw new Error('parsed 0 days');
   model.fetchedAt = new Date().toISOString();
   model.source = 'live';
+  model.cycleId = cycle.id;
   return model;
 }
 
-function readCache() {
+function readCache(cycle) {
   try {
-    const raw = localStorage.getItem(CACHE_KEY);
+    const raw = localStorage.getItem(cacheKey(cycle));
     if (!raw) return null;
     const model = JSON.parse(raw);
     return model.days && model.days.length ? model : null;
   } catch { return null; }
 }
 
-function writeCache(model) {
-  try { localStorage.setItem(CACHE_KEY, JSON.stringify(model)); } catch { /* מלא — לא נורא */ }
+function writeCache(cycle, model) {
+  try { localStorage.setItem(cacheKey(cycle), JSON.stringify(model)); } catch { /* מלא — לא נורא */ }
 }
 
-async function fetchBundled() {
-  const res = await fetch('data/fallback.json');
+async function fetchBundled(cycle) {
+  const res = await fetch(`data/fallback-${cycle.id}.json`);
   const model = await res.json();
   model.source = 'bundled';
+  model.cycleId = cycle.id;
   return model;
 }
 
@@ -84,31 +87,31 @@ async function fetchBundled() {
  * טוען מודל ומדווח דרך onModel(model) — ייתכנו שתי קריאות:
  * קודם מהמטמון (מיידי), ואז מהרשת (עדכני).
  */
-export async function loadModel(onModel) {
-  const cached = readCache();
+export async function loadModel(onModel, cycle) {
+  const cached = readCache(cycle);
   if (cached) {
     cached.source = 'cache';
     onModel(cached);
   }
   try {
-    const live = await fetchLive();
-    writeCache(live);
+    const live = await fetchLive(cycle);
+    writeCache(cycle, live);
     onModel(live);
   } catch (err) {
     console.warn('live sheet fetch failed:', err);
     if (!cached) {
-      try { onModel(await fetchBundled()); }
+      try { onModel(await fetchBundled(cycle)); }
       catch (e2) { console.error('bundled fallback failed too:', e2); }
     }
   }
 }
 
 /* רענון שקט כל 5 דקות + בחזרה לאפליקציה */
-export function startAutoRefresh(onModel) {
+export function startAutoRefresh(onModel, cycle) {
   const refresh = async () => {
     try {
-      const live = await fetchLive();
-      writeCache(live);
+      const live = await fetchLive(cycle);
+      writeCache(cycle, live);
       onModel(live);
     } catch { /* שקט — נשארים עם מה שיש */ }
   };
@@ -159,8 +162,8 @@ export async function adminOp(adminCode, op, msg = {}, msgId = null) {
 /* ---------- עמוד המדריכים ---------- */
 
 /** מושך את הגיליון החי ומחזיר את כל הלשוניות כפי שהן (לרשימות חניכים וצוות). */
-export async function loadRawSheets() {
-  const res = await fetch(`${EXPORT_URL}&t=${Date.now()}`, { cache: 'no-store' });
+export async function loadRawSheets(cycle) {
+  const res = await fetch(`${exportUrl(cycle.sheetId)}&t=${Date.now()}`, { cache: 'no-store' });
   if (!res.ok) throw new Error(`sheet fetch failed: ${res.status}`);
   const files = await unzipXlsx(await res.arrayBuffer());
   const { loadWorkbook } = await import('./parser.js');

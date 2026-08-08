@@ -9,7 +9,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { inflateRawSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { buildModel, EXPORT_URL } from '../js/parser.js';
+import { buildModel, exportUrl } from '../js/parser.js';
+import { CYCLES } from '../js/config.js';
 
 function unzip(buf) {
   // מאתר את ה-End of Central Directory וקורא משם את רשימת הקבצים.
@@ -42,15 +43,18 @@ function unzip(buf) {
   return files;
 }
 
-const arg = process.argv[2];
-const buf = arg
-  ? readFileSync(arg)
-  : Buffer.from(await (await fetch(EXPORT_URL)).arrayBuffer());
+// בונה fallback לכל מחזור: data/fallback-<id>.json
+const only = process.argv[2] ? Number(process.argv[2]) : null;
+const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 
-const model = buildModel(unzip(buf));
-model.generatedAt = new Date().toISOString();
-
-const dest = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'fallback.json');
-writeFileSync(dest, JSON.stringify(model, null, 1), 'utf8');
-const acts = model.days.reduce((n, d) => n + d.activities.length, 0);
-console.log(`wrote ${dest} (${model.days.length} days, ${acts} activities, ${model.messages.length} messages)`);
+for (const cycle of CYCLES) {
+  if (only && cycle.id !== only) continue;
+  const buf = Buffer.from(await (await fetch(exportUrl(cycle.sheetId))).arrayBuffer());
+  const model = buildModel(unzip(buf));
+  model.generatedAt = new Date().toISOString();
+  model.cycleId = cycle.id;
+  const dest = join(dir, `fallback-${cycle.id}.json`);
+  writeFileSync(dest, JSON.stringify(model, null, 1), 'utf8');
+  const acts = model.days.reduce((n, d) => n + d.activities.length, 0);
+  console.log(`${cycle.label}: ${model.days.length} ימים, ${acts} פעילויות -> ${dest}`);
+}
