@@ -106,19 +106,30 @@ export async function loadModel(onModel, cycle) {
   }
 }
 
-/* רענון שקט כל 5 דקות + בחזרה לאפליקציה */
+/* רענון שקט כל 5 דקות, בכל חזרה לאפליקציה, ובלחיצה יזומה */
 export function startAutoRefresh(onModel, cycle) {
+  let inFlight = false;
   const refresh = async () => {
+    if (inFlight) return false;
+    inFlight = true;
     try {
       const live = await fetchLive(cycle);
       writeCache(cycle, live);
       onModel(live);
-    } catch { /* שקט — נשארים עם מה שיש */ }
+      return true;
+    } catch {
+      return false; // שקט — נשארים עם מה שיש
+    } finally {
+      inFlight = false;
+    }
   };
   setInterval(refresh, 5 * 60 * 1000);
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') refresh();
   });
+  // ספארי באייפון מחזיר עמודים מהזיכרון (bfcache) בלי visibilitychange
+  window.addEventListener('pageshow', (e) => { if (e.persisted) refresh(); });
+  return refresh;
 }
 
 /* ---------- הודעות הפס הרץ (Supabase) ---------- */

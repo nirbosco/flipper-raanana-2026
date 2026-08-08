@@ -386,7 +386,7 @@ function renderSyncNote() {
   const m = state.model;
   if (m.source === 'live') {
     const t = new Date(m.fetchedAt);
-    note.textContent = `מסונכרן עם הלו"ז המרכזי · ${String(t.getHours()).padStart(2, '0')}:${String(t.getMinutes()).padStart(2, '0')}`;
+    note.textContent = `מסונכרן עם הלו"ז המרכזי · ${String(t.getHours()).padStart(2, '0')}:${String(t.getMinutes()).padStart(2, '0')} · לרענון הקישו כאן`;
     note.classList.remove('stale');
   } else {
     note.textContent = 'מציג לו"ז שמור, מתעדכן ברגע שיש חיבור';
@@ -477,6 +477,14 @@ setInterval(() => {
 /* ---------- יציאה לדרך ---------- */
 
 loadModel(onModel, CYCLE);
-startAutoRefresh(onModel, CYCLE);
+const forceRefresh = startAutoRefresh(onModel, CYCLE);
+
+/* לחיצה על שורת הסנכרון = משיכה מיידית מהגיליון */
+$('sync-note').addEventListener('click', async () => {
+  const note = $('sync-note');
+  note.textContent = 'מרענן מהלו"ז המרכזי…';
+  const ok = await forceRefresh();
+  if (!ok) note.textContent = 'הרענון נכשל, בודקים חיבור ומנסים שוב';
+});
 refreshTicker();
 setInterval(refreshTicker, 3 * 60 * 1000);
